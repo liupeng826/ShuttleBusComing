@@ -1,0 +1,18 @@
+[
+    {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_launcher.png",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-mdpi/ic_launcher.png"
+    },
+    {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-mdpi/ic_drawer.png",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-mdpi/ic_drawer.png"
+    },
+    {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-mdpi/drawer_shadow.9.png",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-mdpi/drawer_shadow.9.png"
+    },
+    {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-mdpi/car_ic_map_icon_scar.png",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-mdpi/car_ic_map_icon_scar.png"
+    }
+]
