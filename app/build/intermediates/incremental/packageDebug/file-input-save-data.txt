@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Nov 26 21:08:14 CST 2016
+#Sat Nov 26 23:05:18 CST 2016
 20.base=/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/resources-debug.ap_
 143.base=/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/resources-debug.ap_
 340.file=/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/resources-debug.ap_/AndroidManifest.xml

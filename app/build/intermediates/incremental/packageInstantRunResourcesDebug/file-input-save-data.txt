@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Sat Nov 26 21:07:14 CST 2016
+#Sat Nov 26 23:05:16 CST 2016
 210.set=ANDROID_RESOURCE
 282.file=/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/resources-debug.ap_/res/layout-v21/notification_template_custom_big.xml
 14.set=ANDROID_RESOURCE

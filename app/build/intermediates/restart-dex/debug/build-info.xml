@@ -5,33 +5,54 @@
     density="420dpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="62023373698485"
+    timestamp="71405395850390"
     token="8657696501597050888"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="2568" />
+        duration="636" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="924" />
     <task
         name="instant-run-transform"
-        duration="675" />
+        duration="38" />
     <task
         name="verifier"
-        duration="64" />
+        duration="2" />
 
     <artifact
-        location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/outputs/apk/app-debug.apk"
-        type="MAIN" />
+        location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/reload-dex/debug/classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="62023373698485"
-        verifier="FULL_BUILD_REQUESTED" >
+        timestamp="69110944635245"
+        verifier="MANIFEST_FILE_CHANGE" >
         <artifact
             location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="71167081270020"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="71353226756216"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/builds/debug/71353226756216/classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="71405395850390"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/reload-dex/debug/classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>

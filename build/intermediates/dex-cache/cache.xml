@@ -3,21 +3,21 @@
 
     <item
         is-multidex="true"
-        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.1.0/aa557d71ead91cbf26e0c316a0f593d168303309/converter-gson-2.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/converter-gson-2.1.0_19afb9f2672549930a58b6771b589359e057893b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
         <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_ca3374dea7f7c032ca91f82f426c2d2c8f8d1aeb/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.1.0/aa557d71ead91cbf26e0c316a0f593d168303309/converter-gson-2.1.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
+        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/converter-gson-2.1.0_19afb9f2672549930a58b6771b589359e057893b/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -61,7 +61,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="df80828ea766c7ce9c19f6b28c6dd7515bed71ae">
+        sha1="940d4931802e15ec5d8515e4919759269aad03e4">
         <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9ef640d07d935f956ed26a9042c305eb672270de/classes.dex" />
     </item>
     <item
@@ -156,21 +156,21 @@
     </item>
     <item
         is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_43138d21efd88dfcd5ccbead0589c55e32767640/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
         jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
         sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
         <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_ae87615ab959fc3745f1af3294edce0577df6f20/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_43138d21efd88dfcd5ccbead0589c55e32767640/classes.dex" />
     </item>
     <item
         is-multidex="true"
@@ -205,7 +205,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="aefe9201e046040d1225d74884d49647a706eb67">
+        sha1="bd4ecff7f3e1fc8762d945acfb0f72babdb0df01">
         <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_6f5989d61c278139a5aa973edcab7cec698ad0c8/classes.dex" />
     </item>
     <item

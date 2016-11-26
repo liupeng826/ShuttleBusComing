@@ -6,7 +6,6 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 public class BusFragment extends Fragment{
 
@@ -20,8 +19,8 @@ public class BusFragment extends Fragment{
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
-        TextView tv = (TextView) getActivity().findViewById(R.id.tv);
-        tv.setText(getArguments().getString("ARGS"));
+
+
     }
 
     public static BusFragment newInstance(String content) {

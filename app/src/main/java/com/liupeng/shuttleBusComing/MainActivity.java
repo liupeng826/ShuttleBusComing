@@ -9,7 +9,6 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.telephony.TelephonyManager;
 import android.view.Window;
-import android.widget.Toast;
 
 import com.amap.api.location.AMapLocation;
 import com.amap.api.location.AMapLocationClient;
@@ -74,13 +73,13 @@ public class MainActivity extends CheckPermissionsActivity
     private void setDefaultFragment() {
         FragmentManager fm = getSupportFragmentManager();
         FragmentTransaction transaction = fm.beginTransaction();
-        transaction.replace(R.id.layFrame, MapFragment.newInstance("map"));
+        transaction.replace(R.id.layFrame, MapFragment.newInstance());
         transaction.commit();
     }
 
     private ArrayList<Fragment> getFragments() {
         ArrayList<Fragment> fragments = new ArrayList<>();
-        fragments.add(MapFragment.newInstance("map"));
+        fragments.add(MapFragment.newInstance());
         fragments.add(BusFragment.newInstance("bus"));
         fragments.add(MeFragment.newInstance("me"));
         return fragments;
@@ -176,9 +175,10 @@ public class MainActivity extends CheckPermissionsActivity
                 // 上传定位信息
                 postLocation(loc);
 
-            } else {
-                Toast.makeText(getApplicationContext(), "定位失败", Toast.LENGTH_SHORT).show();
             }
+//            else {
+//                Toast.makeText(getApplicationContext(), "定位失败", Toast.LENGTH_SHORT).show();
+//            }
         }
     };
 
