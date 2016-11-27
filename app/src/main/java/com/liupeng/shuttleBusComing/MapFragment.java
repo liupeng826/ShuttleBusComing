@@ -3,7 +3,6 @@ package com.liupeng.shuttleBusComing;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
-import android.support.v4.app.Fragment;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,8 +14,11 @@ import com.amap.api.location.AMapLocationClient;
 import com.amap.api.location.AMapLocationClientOption;
 import com.amap.api.location.AMapLocationListener;
 import com.amap.api.maps.AMap;
+import com.amap.api.maps.AMapOptions;
+import com.amap.api.maps.CameraUpdateFactory;
 import com.amap.api.maps.LocationSource;
 import com.amap.api.maps.MapView;
+import com.amap.api.maps.SupportMapFragment;
 import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 
@@ -24,7 +26,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
-public class MapFragment extends Fragment implements LocationSource,
+public class MapFragment extends SupportMapFragment implements LocationSource,
         AMapLocationListener {
 
     private MapView mMapView;
@@ -76,11 +78,20 @@ public class MapFragment extends Fragment implements LocationSource,
 //            }
 //        }
 //        return mapLayout;
-        view = inflater.inflate(R.layout.fragment, container,
-                false);
-        mMapView = (MapView) view.findViewById(R.id.map);
-        mMapView.onCreate(savedInstanceState);
-        initMap();
+//        if(view == null) {
+            view = inflater.inflate(R.layout.fragment, container, false);
+            mMapView = (MapView) view.findViewById(R.id.map);
+            mMapView.onCreate(savedInstanceState);
+            initMap();
+            //setUpMap();
+//        }
+//        else
+//        {
+//            if (view.getParent() != null) {
+//                ((ViewGroup) view.getParent()).removeView(view);
+//            }
+//
+//        }
         return view;
     }
 
@@ -109,7 +120,7 @@ public class MapFragment extends Fragment implements LocationSource,
         if(mLocationClient!=null){
             mLocationClient.startLocation();
         }
-        //mAMap.moveCamera(CameraUpdateFactory.zoomTo(14));
+        mAMap.moveCamera(CameraUpdateFactory.zoomTo(14));
     }
 
     /**
@@ -146,7 +157,7 @@ public class MapFragment extends Fragment implements LocationSource,
     public void onDestroy() {
         Log.i("sys", "mf onDestroy");
         super.onDestroy();
-        mMapView.onDestroy();
+        //mMapView.onDestroy();
     }
 
     @Override
@@ -181,12 +192,13 @@ public class MapFragment extends Fragment implements LocationSource,
      */
     private void setUpMap() {
         mAMap.setLocationSource(this);
-        mAMap.getUiSettings().setMyLocationButtonEnabled(true);// 设置默认定位按钮是否显示
-        mAMap.setMyLocationEnabled(true);// 设置为true表示显示定位层并可触发定位，false表示隐藏定位层并不可触发定位，默认是false
-        // 设置定位的类型为定位模式 ，可以由定位、跟随或地图根据面向方向旋转几种
+        mAMap.getUiSettings().setMyLocationButtonEnabled(true);
+        mAMap.setMyLocationEnabled(true);
         mAMap.setMyLocationType(AMap.LOCATION_TYPE_LOCATE);
-        // 指南针
-        mAMap.getUiSettings().setCompassEnabled(true);
+        mAMap.getUiSettings().setLogoPosition(
+                AMapOptions.LOGO_POSITION_BOTTOM_LEFT);// logo位置
+        mAMap.getUiSettings().setScaleControlsEnabled(true);// 标尺开关
+        mAMap.getUiSettings().setCompassEnabled(true);// 指南针开关
     }
 
     public static MapFragment newInstance() {
@@ -218,7 +230,7 @@ public class MapFragment extends Fragment implements LocationSource,
             //设置是否强制刷新WIFI，默认为强制刷新
             mLocationOption.setWifiActiveScan(true);
             //设置是否允许模拟位置,默认为false，不允许模拟位置
-//            mLocationOption.setMockEnable(true);
+            mLocationOption.setMockEnable(true);
             //设置定位间隔,单位毫秒,默认为2000ms
             mLocationOption.setInterval(3 * 1000);
             //给定位客户端对象设置定位参数
