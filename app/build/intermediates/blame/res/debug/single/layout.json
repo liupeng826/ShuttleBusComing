@@ -36,6 +36,10 @@
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/layout/design_navigation_menu_item.xml"
     },
     {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/menu_settings.xml",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/layout/menu_settings.xml"
+    },
+    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/design_navigation_item_subheader.xml",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/layout/design_navigation_item_subheader.xml"
     },
@@ -44,20 +48,20 @@
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_activity_chooser_view_list_item.xml"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_bar_title_item.xml"
-    },
-    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/notification_template_media.xml",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_template_media.xml"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/abc_action_bar_title_item.xml",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_bar_title_item.xml"
     },
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/abc_alert_dialog_button_bar_material.xml",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/abc_screen_simple_overlay_action_mode.xml",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_screen_simple_overlay_action_mode.xml"
     },
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/abc_list_menu_item_checkbox.xml",
@@ -66,6 +70,10 @@
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/abc_screen_toolbar.xml",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/preference_category_widget.xml",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/layout/preference_category_widget.xml"
     },
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/select_dialog_item_material.xml",
@@ -86,6 +94,10 @@
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/fragment.xml",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/layout/fragment.xml"
+    },
+    {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/fragment_me.xml",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/layout/fragment_me.xml"
     },
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/abc_action_mode_close_item_material.xml",
@@ -168,6 +180,10 @@
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_action_menu_layout.xml"
     },
     {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/activity_public.xml",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/layout/activity_public.xml"
+    },
+    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/notification_action_tombstone.xml",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/notification_action_tombstone.xml"
     },
@@ -208,8 +224,16 @@
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/abc_expanded_menu_layout.xml"
     },
     {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/preference_item.xml",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/layout/preference_item.xml"
+    },
+    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/support_simple_spinner_dropdown_item.xml",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout/support_simple_spinner_dropdown_item.xml"
+    },
+    {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/activity_setting.xml",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/layout/activity_setting.xml"
     },
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout/abc_popup_menu_item_layout.xml",

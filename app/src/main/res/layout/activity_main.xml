@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="com.liupeng.shuttleBusComing.MainActivity">
+    tools:context="com.liupeng.shuttleBusComing.activity.MainActivity">
 
     <FrameLayout
         android:id="@+id/layFrame"

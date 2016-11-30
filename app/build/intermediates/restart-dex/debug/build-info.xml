@@ -5,39 +5,49 @@
     density="420dpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="74804039300193"
+    timestamp="50400068062030"
     token="8657696501597050888"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="0" />
+        duration="1042" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="0" />
+        duration="67" />
     <task
         name="verifier"
-        duration="0" />
+        duration="1" />
 
     <artifact
-        location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
+        location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
         type="DEX" />
 
     <build
-        timestamp="69110944635245"
-        verifier="MANIFEST_FILE_CHANGE" >
+        timestamp="46586756260122"
+        verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/outputs/apk/app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="74804039300193"
-        verifier="COLD_SWAP_REQUESTED" >
+        timestamp="49356877269006"
+        verifier="R_CLASS_CHANGE" >
+        <artifact
+            location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/instant-run-resources/resources-debug.ir.ap_"
+            type="RESOURCES" />
         <artifact
             location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_2/classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="50400068062030"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/5/slice_4/classes.dex"
             type="DEX" />
     </build>
 
