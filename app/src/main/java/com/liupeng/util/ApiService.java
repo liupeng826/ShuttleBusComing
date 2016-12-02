@@ -13,11 +13,8 @@ import retrofit2.http.Query;
 
 public interface ApiService {
     @GET("api/coordinate/")
-    Call<com.liupeng.util.CoordinateGson> getCoordinateData(@Query("role") String role);
+    Call<CoordinateGson> getCoordinateData(@Query("roleId") long roleId);
 
     @POST("api/coordinate")
-    Call<com.liupeng.util.Coordinate> updateCoordinate(@Body Coordinate coordinate);
-
-    @POST("api/coordinate/role")
-    Call<com.liupeng.util.Coordinate> updateDriver(@Body Coordinate coordinate);
+    Call<Coordinate> updateCoordinate(@Body Coordinate coordinate);
 }
