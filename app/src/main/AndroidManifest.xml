@@ -40,6 +40,15 @@
         </meta-data>
 
         <service android:name="com.amap.api.location.APSService"/>
+        <service android:name=".service.BusLineService" />
+        <service
+            android:name=".service.LocationService"
+            android:enabled="true"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="LocationService" />
+            </intent-filter>
+        </service>
 
         <activity android:name=".activities.MainActivity"
                   android:windowSoftInputMode="adjustPan">

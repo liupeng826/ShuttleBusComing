@@ -30,9 +30,9 @@ import com.amap.api.maps.model.LatLng;
 import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.liupeng.shuttleBusComing.R;
-import com.liupeng.util.ApiService;
-import com.liupeng.util.Coordinate;
-import com.liupeng.util.CoordinateGson;
+import com.liupeng.shuttleBusComing.utils.ApiService;
+import com.liupeng.shuttleBusComing.utils.Coordinate;
+import com.liupeng.shuttleBusComing.utils.CoordinateGson;
 
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;

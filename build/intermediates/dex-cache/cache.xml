@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="4499d3684220f614e0ecc627032751fd0b36fe3a">
+        sha1="3c2642f3acdc713ff01b58c0ce0319e9a9ef81ad">
         <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9ef640d07d935f956ed26a9042c305eb672270de/classes.dex" />
     </item>
     <item
@@ -84,6 +84,15 @@
     </item>
     <item
         is-multidex="true"
+        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/libs/AMap_Search_V3.6.1_20161122.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.1"
+        sha1="3ec45e7996351e486830cf73a5a7ed88a2144c7f">
+        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/2/AMap_Search_V3.6.1_20161122_553d1c0480060aea3c924ad364c87bb0fa9c3dbf/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
         jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
         jumboMode="true"
         optimize="true"
@@ -106,7 +115,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="207b51e7e6dfbce743e4a1931568a2ce13cea840">
+        sha1="26eed744dc943ffde98bff3ac1351232ba78ae47">
         <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_6f5989d61c278139a5aa973edcab7cec698ad0c8/classes.dex" />
     </item>
     <item
