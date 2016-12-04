@@ -34,8 +34,7 @@ import java.util.ArrayList;
 import java.util.Map;
 
 public class MainActivity extends CheckPermissionsActivity
-        implements
-            BottomNavigationBar.OnTabSelectedListener {
+        implements BottomNavigationBar.OnTabSelectedListener {
     private ArrayList<Fragment> fragments;
 
     final String URL = "http://180.76.169.196:8000/";

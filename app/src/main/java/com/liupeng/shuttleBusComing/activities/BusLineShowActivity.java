@@ -20,6 +20,7 @@ import com.liupeng.shuttleBusComing.utils.Initialize;
 import com.liupeng.shuttleBusComing.utils.PoiAddressUtil;
 import com.liupeng.shuttleBusComing.views.BusLineView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class BusLineShowActivity extends AppCompatActivity implements
@@ -65,12 +66,42 @@ public class BusLineShowActivity extends AppCompatActivity implements
             BackStation = getIntent().getParcelableArrayListExtra("BackLine");
         }
         busLineName = getIntent().getStringExtra("BusName");
-        if(-1 != busLineName.indexOf("(")){
+
+        if(busLineName != null && busLineName.contains("(")){
             busLineName = busLineName.substring(0,busLineName.indexOf("("));
         }
-        destinationText = goStation.get(0).getBusStationName()
-                + "→"
-                + goStation.get(goStation.size()-1).getBusStationName();
+
+        if(goStation != null) {
+            destinationText = goStation.get(0).getBusStationName()
+                    + "→"
+                    + goStation.get(goStation.size() - 1).getBusStationName();
+        }
+
+
+
+        // -----------------------
+        goStation = new ArrayList<>();
+
+        BusStationItem bItem = new BusStationItem();
+        bItem.setBusStationId("1");
+        bItem.setBusStationName("日报大厦");
+        goStation.add(bItem);
+        bItem = new BusStationItem();
+        bItem.setBusStationId("2");
+        bItem.setBusStationName("中山门");
+        goStation.add(bItem);
+        bItem = new BusStationItem();
+        bItem.setBusStationId("3");
+        bItem.setBusStationName("崂山道");
+        goStation.add(bItem);
+        bItem = new BusStationItem();
+        bItem.setBusStationId("4");
+        bItem.setBusStationName("程林北里");
+        goStation.add(bItem);
+
+        busLineName = "中山门";
+        // -----------------
+
         if(null != getIntent().getSerializableExtra("FirstBus")){
             String startTime = getIntent().getSerializableExtra("FirstBus").toString();
             String endTime = getIntent().getSerializableExtra("LastBus").toString();

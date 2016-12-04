@@ -161,6 +161,10 @@ ADDED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/An
 		ADDED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/AndroidManifest.xml:69:52-88
 	android:name
 		ADDED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/AndroidManifest.xml:69:13-51
+activity#com.liupeng.shuttleBusComing.activities.BusLineShowActivity
+ADDED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/AndroidManifest.xml:71:9-68
+	android:name
+		ADDED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/AndroidManifest.xml:71:19-65
 uses-sdk
 INJECTED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.jakewharton:butterknife:8.4.0] /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/AndroidManifest.xml:5:5-43

@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * Created by chunr on 2016/5/13.
+ * Created by LiuPeng on 2016/12/4.
  */
 public class BusLineService extends Service implements
         BusLineSearch.OnBusLineSearchListener,
@@ -36,8 +36,6 @@ public class BusLineService extends Service implements
 
     private PoiMessage poiMessage;
     private String search;
-
-
 
     //存放线路信息的list
     private ArrayList<Map<String,Object>> busLineItems = new ArrayList<>();

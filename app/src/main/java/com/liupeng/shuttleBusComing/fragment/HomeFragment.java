@@ -2,7 +2,6 @@ package com.liupeng.shuttleBusComing.fragment;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
-import android.widget.ListView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -19,7 +17,7 @@ import com.liupeng.shuttleBusComing.R;
 import com.liupeng.shuttleBusComing.activities.BusLineShowActivity;
 import com.liupeng.shuttleBusComing.activities.MainActivity;
 import com.liupeng.shuttleBusComing.activities.MapActivity;
-import com.liupeng.shuttleBusComing.adapter.RecentAdapter;
+import com.liupeng.shuttleBusComing.adapter.LineAdapter;
 import com.liupeng.shuttleBusComing.bean.ErrorStatus;
 import com.liupeng.shuttleBusComing.utils.Initialize;
 import com.liupeng.shuttleBusComing.utils.Station;
@@ -39,12 +37,11 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
     private TextView recentStation;
     private TextView recentLine;
     private TextView nextStation;
-    private ListView stationListView;
 
     private LinearLayout nowLine;
     private LinearLayout nowStation;
     private boolean isFirst = true;
-    private RecentAdapter stationAdapter;
+    private LineAdapter stationAdapter;
     private ArrayList<Map<String, BusLineItem>> busLineMessage;
     private boolean isLast = false;
 
@@ -78,13 +75,11 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
         recentStation = $(view, R.id.recent_stations);
         recentLine = $(view, R.id.recent_line);
         nextStation = $(view, R.id.next_station);
-        //stationListView = $(view, R.id.stations_list);
         nowLine = $(view, R.id.now_line);
         nowStation = $(view, R.id.now_station);
         imgBtn_favorite.setOnClickListener(this);
         imgBtn_map.setOnClickListener(this);
         mainActivity = (MainActivity) getActivity();
-        //stationListView.setOnItemClickListener(this);
         nowLine.setOnClickListener(this);
         nowStation.setOnClickListener(this);
     }
@@ -163,30 +158,30 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
     }
 
     public void showLine() {
-        if (null != busLineMessage) {
+//        if (null != busLineMessage) {
             Intent intentShowLine = new Intent(getActivity(), BusLineShowActivity.class);
 
-            intentShowLine.putParcelableArrayListExtra("GoLine",
-                    (ArrayList<? extends Parcelable>) busLineMessage.get(0)
-                            .get("GoBusLineMessage")
-                            .getBusStations());
-
-            intentShowLine.putParcelableArrayListExtra("BackLine",
-                    (ArrayList<? extends Parcelable>) busLineMessage.get(0)
-                            .get("BackBusLineMessage")
-                            .getBusStations());
-
-            intentShowLine.putExtra("BusName", busLineMessage.get(0)
-                    .get("GoBusLineMessage")
-                    .getBusLineName());
-
-            intentShowLine.putExtra("FirstBus", busLineMessage.get(0)
-                    .get("GoBusLineMessage").getFirstBusTime());
-
-            intentShowLine.putExtra("LastBus", busLineMessage.get(0)
-                    .get("GoBusLineMessage").getLastBusTime());
+//            intentShowLine.putParcelableArrayListExtra("GoLine",
+//                    (ArrayList<? extends Parcelable>) busLineMessage.get(0)
+//                            .get("GoBusLineMessage")
+//                            .getBusStations());
+//
+//            intentShowLine.putParcelableArrayListExtra("BackLine",
+//                    (ArrayList<? extends Parcelable>) busLineMessage.get(0)
+//                            .get("BackBusLineMessage")
+//                            .getBusStations());
+//
+//            intentShowLine.putExtra("BusName", busLineMessage.get(0)
+//                    .get("GoBusLineMessage")
+//                    .getBusLineName());
+//
+//            intentShowLine.putExtra("FirstBus", busLineMessage.get(0)
+//                    .get("GoBusLineMessage").getFirstBusTime());
+//
+//            intentShowLine.putExtra("LastBus", busLineMessage.get(0)
+//                    .get("GoBusLineMessage").getLastBusTime());
             startActivity(intentShowLine);
-        }
+//        }
     }
 
     @Override

@@ -70,6 +70,7 @@
             android:name="com.liupeng.shuttleBusComing.activities.MapActivity"
             android:screenOrientation="portrait" >
         </activity>
+        <activity android:name="com.liupeng.shuttleBusComing.activities.BusLineShowActivity" />
         <activity
             android:name="com.antfortune.freeline.MiddlewareActivity"
             android:screenOrientation="portrait" />
