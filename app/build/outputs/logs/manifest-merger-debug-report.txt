@@ -109,10 +109,6 @@ service#com.amap.api.location.APSService
 ADDED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/AndroidManifest.xml:42:9-67
 	android:name
 		ADDED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/AndroidManifest.xml:42:18-65
-service#com.liupeng.shuttleBusComing.service.BusLineService
-ADDED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/AndroidManifest.xml:43:9-59
-	android:name
-		ADDED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/AndroidManifest.xml:43:18-56
 service#com.liupeng.shuttleBusComing.service.LocationService
 ADDED from /Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/AndroidManifest.xml:44:9-51:19
 	android:enabled

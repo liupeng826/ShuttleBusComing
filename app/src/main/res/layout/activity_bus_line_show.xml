@@ -139,43 +139,10 @@
                         android:layout_height="1.5dp"
                         android:background="@color/busline_bg"
                         />
-                    <RelativeLayout
-                        android:id="@+id/switch_line"
-                        android:gravity="center"
-                        android:layout_width="match_parent"
-                        android:layout_height="0dp"
-                        android:layout_weight="0.9"
-                        android:background="@drawable/alpha_button"
-                        >
-                        <LinearLayout
-                            android:id="@+id/switch_blank"
-                            android:layout_centerInParent="true"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:orientation="horizontal"
-                            >
-                            <TextView
-                                android:layout_gravity="center"
-                                android:gravity="center_vertical"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:text="@string/same_line"
-                                android:layout_weight="3"
-                                />
-                            <ImageView
-                                android:id="@+id/switch_icon"
-                                android:padding="1dp"
-                                android:layout_width="0dp"
-                                android:layout_height="match_parent"
-                                android:layout_weight="1"
-                                android:src="@drawable/same_line"
-                                />
-                        </LinearLayout>
-                    </RelativeLayout>
 
                 </LinearLayout>
                 <com.liupeng.shuttleBusComing.views.BusLineView
-                    android:id="@+id/bus_line"
+                    android:id="@+id/bus_station"
                     android:layout_width="match_parent"
                     android:layout_height="0dp"
                     android:layout_weight="5.5"

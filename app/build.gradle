@@ -27,6 +27,7 @@ dependencies {
     compile files('libs/android-support-v4.jar')
     compile 'com.jakewharton:butterknife:8.4.0'
     compile 'com.google.code.gson:gson:2.4'
+    compile 'io.reactivex:rxjava:x.y.z'
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'com.squareup.retrofit2:retrofit-converters:2.1.0'
     compile 'com.squareup.retrofit2:converter-gson:2.1.0'

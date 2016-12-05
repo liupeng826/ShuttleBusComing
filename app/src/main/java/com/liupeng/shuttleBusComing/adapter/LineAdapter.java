@@ -19,10 +19,10 @@ import java.util.ArrayList;
  */
 public class LineAdapter extends BaseAdapter {
     private LayoutInflater mInflater;//得到一个LayoutInfalter对象用来导入布局
-    private ArrayList<String> data;
+    private ArrayList<Integer> data;
 
     /**构造函数*/
-    public LineAdapter(Context context, ArrayList<String> lineItems) {
+    public LineAdapter(Context context, ArrayList<Integer> lineItems) {
         this.mInflater = LayoutInflater.from(context);
         this.data = lineItems;
     }
@@ -45,7 +45,7 @@ public class LineAdapter extends BaseAdapter {
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
 
-        String lineName = data.get(i);
+        Integer lineName = data.get(i);
         ViewHolder viewHolder;
         if(null == view){
             viewHolder = new ViewHolder();
@@ -56,7 +56,7 @@ public class LineAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) view.getTag();
         }
 
-        viewHolder.lineName.setText(lineName);
+        viewHolder.lineName.setText(lineName + "号线");
 
         view.setLayoutParams(new ListView.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT,
                 Initialize.SCREEN_HEIGHT/15));

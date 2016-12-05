@@ -48,6 +48,9 @@ import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
 import static android.content.ContentValues.TAG;
+import static com.liupeng.shuttleBusComing.utils.Initialize.FETCH_TIME_INTERVAL;
+import static com.liupeng.shuttleBusComing.utils.Initialize.FILENAME;
+import static com.liupeng.shuttleBusComing.utils.Initialize.LINE_KEY;
 
 public class MapActivity extends Activity implements LocationSource,
         AMapLocationListener {
@@ -71,10 +74,7 @@ public class MapActivity extends Activity implements LocationSource,
     // 通过设置间隔时间和距离可以控制速度和图标移动的距离
     private static final double DISTANCE = 0.0001;
 
-    private static final int FETCH_TIME_INTERVAL = 7000;
     final String URL = "http://180.76.169.196:8000/";
-    final String FILENAME = "ShuttleBusComingsj";
-    final String LINE_KEY = "LINE_KEY";
     final String DRIVERLINE_KEY = "DRIVERLINE_KEY";
     final String UUIDKEY = "UUID_KEY";
     final String DRIVERKEY = "DRIVER_KEY";
@@ -408,6 +408,7 @@ public class MapActivity extends Activity implements LocationSource,
                 //增加返回值为Oservable<T>的支持
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build();
+
         ApiService apiManager = retrofit.create(ApiService.class);//这里采用的是Java的动态代理模式
 
         Call<CoordinateGson> call = apiManager.getCoordinateData(mSelectedBusLineNumber);

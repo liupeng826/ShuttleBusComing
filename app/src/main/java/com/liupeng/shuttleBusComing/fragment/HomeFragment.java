@@ -1,7 +1,9 @@
 package com.liupeng.shuttleBusComing.fragment;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -11,6 +13,7 @@ import android.widget.ImageButton;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.amap.api.services.busline.BusLineItem;
 import com.liupeng.shuttleBusComing.R;
@@ -19,6 +22,8 @@ import com.liupeng.shuttleBusComing.activities.MainActivity;
 import com.liupeng.shuttleBusComing.activities.MapActivity;
 import com.liupeng.shuttleBusComing.adapter.LineAdapter;
 import com.liupeng.shuttleBusComing.bean.ErrorStatus;
+import com.liupeng.shuttleBusComing.utils.ApiService;
+import com.liupeng.shuttleBusComing.utils.CoordinateGson;
 import com.liupeng.shuttleBusComing.utils.Initialize;
 import com.liupeng.shuttleBusComing.utils.Station;
 
@@ -27,6 +32,19 @@ import java.util.Map;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
+import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.converter.scalars.ScalarsConverterFactory;
+
+import static android.content.Context.MODE_PRIVATE;
+import static com.liupeng.shuttleBusComing.utils.Initialize.FETCH_TIME_INTERVAL;
+import static com.liupeng.shuttleBusComing.utils.Initialize.FILENAME;
+import static com.liupeng.shuttleBusComing.utils.Initialize.LINE_KEY;
+import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
 
 public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineMessage, View.OnClickListener {
 
@@ -44,6 +62,9 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
     private LineAdapter stationAdapter;
     private ArrayList<Map<String, BusLineItem>> busLineMessage;
     private boolean isLast = false;
+    private Handler handler;
+    private Runnable runnable;
+    private int mSelectedBusLineNumber;
 
     @BindView(R.id.imgBtn_favorite)
     ImageButton imgBtn_favorite;
@@ -61,15 +82,6 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
     }
 
     public void initView(View view) {
-//        myAddress = (TextView) view.findViewById(R.id.myAddress);
-//        hideMyAddress = (RelativeLayout) view.findViewById(R.id.hide_myaddress);
-//        nonBusLine = (RelativeLayout) view.findViewById(R.id.nonBusLine);
-//        locatingWaitingProGrass = (RelativeLayout) view.findViewById(R.id.locatingWaitingStatus);
-//        waitingBusLine = (RelativeLayout) view.findViewById(R.id.waiting_BusLine);
-//        locationMessageLayout = (LinearLayout) view.findViewById(R.id.myLocationMessage);
-//        busListForm = (LinearLayout) view.findViewById(R.id.busListForm);
-//        busLine = (TextView) view.findViewById(R.id.busLine);
-//        busList = (ListView) view.findViewById(R.id.bus_list);
         mainMessage = $(view, R.id.main_message);
         hideBg = $(view, R.id.hide_bg);
         recentStation = $(view, R.id.recent_stations);
@@ -87,8 +99,16 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
     private ArrayList<Station> data = new ArrayList<Station>();
 
     public void initData(){
+
+        // 读取存储数据
+        SharedPreferences settings = getActivity().getSharedPreferences(FILENAME, MODE_PRIVATE);
+        mSelectedBusLineNumber = settings.getInt(LINE_KEY, 1);
+
         recentStation.setText("日报大厦");
-        recentLine.setText("6号线");
+        recentLine.setText(mSelectedBusLineNumber + "号线");
+
+        getDataTask();
+
 //            String result = getNextStation(busLineItem.getBusStations());
         String result = "中山门";
         String forward = null;
@@ -171,9 +191,7 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
 //                            .get("BackBusLineMessage")
 //                            .getBusStations());
 //
-//            intentShowLine.putExtra("BusName", busLineMessage.get(0)
-//                    .get("GoBusLineMessage")
-//                    .getBusLineName());
+            intentShowLine.putExtra("LineNumber", mSelectedBusLineNumber);
 //
 //            intentShowLine.putExtra("FirstBus", busLineMessage.get(0)
 //                    .get("GoBusLineMessage").getFirstBusTime());
@@ -224,4 +242,52 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
 //                Initialize.ERROR : (isLast ?
 //                (stationItems.get(correctLocation).getBusStationName()) : (stationItems.get(correctLocation + 1).getBusStationName()));
 //    }
+
+    private void getDataTask() {
+
+        handler = new Handler();
+        runnable = new Runnable() {
+            @Override
+            public void run() {
+                getData();
+                handler.postDelayed(this, FETCH_TIME_INTERVAL);
+            }
+        };
+
+        handler.postDelayed(runnable, FETCH_TIME_INTERVAL);
+    }
+
+    public void getData() {
+        Retrofit retrofit = new Retrofit.Builder()
+                .baseUrl(WebApiURL)
+                //增加返回值为String的支持
+                .addConverterFactory(ScalarsConverterFactory.create())
+                //增加返回值为Gson的支持(以实体类返回)
+                .addConverterFactory(GsonConverterFactory.create())
+                //增加返回值为Oservable<T>的支持
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .build();
+        ApiService apiManager = retrofit.create(ApiService.class);//这里采用的是Java的动态代理模式
+
+        Call<CoordinateGson> call = apiManager.getCoordinateData(mSelectedBusLineNumber);
+        call.enqueue(new Callback<CoordinateGson>() {
+            @Override
+            public void onResponse(Call<CoordinateGson> call, Response<CoordinateGson> response) {
+                //处理请求成功
+
+                if (response.body().getData() != null) {
+
+                    CoordinateGson.DataBean dataBean;
+                    dataBean = response.body().getData();
+
+                }
+            }
+
+            @Override
+            public void onFailure(Call<CoordinateGson> call, Throwable t) {
+                //处理请求失败
+                Toast.makeText(getActivity(), mSelectedBusLineNumber + "号线班车位置获取错误", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 }

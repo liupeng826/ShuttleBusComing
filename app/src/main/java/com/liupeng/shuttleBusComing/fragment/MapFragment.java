@@ -53,7 +53,6 @@ public class MapFragment extends SupportMapFragment implements LocationSource,
     // 通过设置间隔时间和距离可以控制速度和图标移动的距离
     private static final double DISTANCE = 0.0001;
 
-    private static final int FETCH_TIME_INTERVAL = 5000;
     final String URL = "http://180.76.169.196:8000/";
     final String mFileName = "BusLine";
     final String mLineKey = "LINE_KEY";

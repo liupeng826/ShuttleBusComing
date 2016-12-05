@@ -40,7 +40,7 @@
         </meta-data>
 
         <service android:name="com.amap.api.location.APSService"/>
-        <service android:name=".service.BusLineService" />
+        <!--<service android:name=".service.BusLineService" />-->
         <service
             android:name=".service.LocationService"
             android:enabled="true"
