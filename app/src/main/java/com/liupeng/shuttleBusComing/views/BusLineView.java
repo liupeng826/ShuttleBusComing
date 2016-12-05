@@ -15,12 +15,12 @@ import android.widget.Scroller;
 
 import com.liupeng.shuttleBusComing.Interfaces.OnBusStationClickListener;
 import com.liupeng.shuttleBusComing.utils.Initialize;
-import com.amap.api.services.busline.BusStationItem;
+import com.liupeng.shuttleBusComing.utils.Station;
 
 import java.util.List;
 
 /**
- * Created by chunr on 2016/5/17.
+ * Created by LiuPeng on 2016/12/1.
  */
 public class BusLineView extends View implements OnBusStationClickListener {
 
@@ -30,7 +30,7 @@ public class BusLineView extends View implements OnBusStationClickListener {
     private float lineHeight;
     private float defaultPoint;
     private Paint alphaPaint;
-    private List<BusStationItem> busStation;
+    private List<Station> busStation;
     private float pointRadius;
     private float distance = 0;
     private Scroller mScroller;
@@ -64,7 +64,7 @@ public class BusLineView extends View implements OnBusStationClickListener {
         init();
     }
 
-    public void setBusStation(List<BusStationItem> message){
+    public void setBusStation(List<Station> message){
         busStation = message;
         invalidate();
     }
@@ -175,7 +175,7 @@ public class BusLineView extends View implements OnBusStationClickListener {
                                 int num = (int) ((clickX-defaultPoint+pointRadius+linewidth)/(lineWidth));
                                 if(clickY >= (lineHeight + lineWidth/2 +textWidth)
                                         &&
-                                        clickY <= lineHeight + lineWidth/2+ 10 + (busStation.get(num).getBusStationName().length() + 2) * textWidth ){
+                                        clickY <= lineHeight + lineWidth/2+ 10 + (busStation.get(num).getStationName().length() + 2) * textWidth ){
                                     if(null != mListener){
                                         mListener.OnClickItem(num);
                                         if(null != elseListener){
@@ -235,14 +235,14 @@ public class BusLineView extends View implements OnBusStationClickListener {
                         defaultPoint + count * lineWidth - (textWidth/2),
                         lineHeight + lineWidth/2 +textWidth ,
                         ((itemClick)&&(count==witchItem))?clickPaint:textPaint);
-                for (int i = 0; i < busStation.get(count).getBusStationName().length(); i++) {
+                for (int i = 0; i < busStation.get(count).getStationName().length(); i++) {
                     if(i == 0){
-                        canvas.drawText(String.valueOf(busStation.get(count).getBusStationName().charAt(i)),
+                        canvas.drawText(String.valueOf(busStation.get(count).getStationName().charAt(i)),
                                 defaultPoint + count * lineWidth - (textWidth/2),
                                 lineHeight + lineWidth/2+ 30 + (i + 2) * textWidth,
                                 ((itemClick)&&(count==witchItem))?clickPaint:textPaint);
                     }else{
-                        canvas.drawText(String.valueOf(busStation.get(count).getBusStationName().charAt(i)),
+                        canvas.drawText(String.valueOf(busStation.get(count).getStationName().charAt(i)),
                                 defaultPoint + count * lineWidth - (textWidth/2),
                                 lineHeight + lineWidth/2+ 30 + (i + 2) * textWidth,
                                 ((itemClick)&&(count==witchItem))?clickPaint:textPaint);

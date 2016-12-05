@@ -274,12 +274,9 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
             @Override
             public void onResponse(Call<CoordinateGson> call, Response<CoordinateGson> response) {
                 //处理请求成功
-
                 if (response.body().getData() != null) {
-
                     CoordinateGson.DataBean dataBean;
                     dataBean = response.body().getData();
-
                 }
             }
 

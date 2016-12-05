@@ -9,15 +9,11 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.amap.api.services.busline.BusStationItem;
-import com.amap.api.services.core.LatLonPoint;
-import com.amap.api.services.core.PoiItem;
 import com.liupeng.shuttleBusComing.Interfaces.OnBusStationClickListener;
 import com.liupeng.shuttleBusComing.R;
 import com.liupeng.shuttleBusComing.bean.ErrorStatus;
 import com.liupeng.shuttleBusComing.bean.LocationMessage;
 import com.liupeng.shuttleBusComing.utils.ApiService;
-import com.liupeng.shuttleBusComing.utils.PoiAddressUtil;
 import com.liupeng.shuttleBusComing.utils.Station;
 import com.liupeng.shuttleBusComing.utils.StationGson;
 import com.liupeng.shuttleBusComing.views.BusLineView;
@@ -47,8 +43,6 @@ public class BusLineShowActivity extends AppCompatActivity implements
     private RelativeLayout waiting;
 
     private LinearLayout busLineMainPage;
-    private LinearLayout switchBlank;
-    private RelativeLayout switchLine;
     private RelativeLayout hidePage;
     private BusLineView busLineView;
     private String busLineName;
@@ -56,10 +50,8 @@ public class BusLineShowActivity extends AppCompatActivity implements
     private String timeText;
 
     private LocationMessage locationMessage;
-//    private Intent showSameStation;
-    private PoiAddressUtil mPoiAddressUtil;
     private int mSelectedBusLineNumber;
-    private List<BusStationItem> goStation;
+    private List<Station> busStation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -69,17 +61,11 @@ public class BusLineShowActivity extends AppCompatActivity implements
         initView();
     }
 
-
     public void initData(){
-        try {
-            goStation = new ArrayList<>();
-
-            mSelectedBusLineNumber = getIntent().getIntExtra("LineNumber", 0);
+            busStation = new ArrayList<>();
+            mSelectedBusLineNumber = getIntent().getIntExtra("LineNumber", 1);
             busLineName = mSelectedBusLineNumber + "号线";
             getStationData();
-        }catch(Exception e){
-            Log.i("getSatation: ",e.getMessage());
-        }
     }
 
     public void initView(){
@@ -117,19 +103,16 @@ public class BusLineShowActivity extends AppCompatActivity implements
 
     public void showMessage(ErrorStatus status){
         if(!status.getIsError()){
-            switchLine.setEnabled(true);
         }
         busLineView.setOnClickEnable(true);
         belowTitle.setVisibility(View.VISIBLE);
         waiting.setVisibility(View.GONE);
-        switchLine.setEnabled(true);
     }
 
     public void hideMessage(){
         busLineView.setOnClickEnable(false);
         belowTitle.setVisibility(View.GONE);
         waiting.setVisibility(View.VISIBLE);
-        switchLine.setEnabled(false);
     }
 
 
@@ -137,45 +120,10 @@ public class BusLineShowActivity extends AppCompatActivity implements
     @Override
     public void OnClickItem(int position) {
 
-        this.position = position;
-
 //        hideMessage();
-
-//        mPoiAddressUtil.setmLatLng(goStation.get(position).getLatLonPoint())
-//                .setmCity(locationMessage.getCity())
-//                .setKeyWord(goStation.get(position).getBusStationName());
-//        mPoiAddressUtil.startPoiSearch();
-
-
-
-
-//        showSameStation.putExtra("StationName",goStation.get(position).getBusStationName());
-//        showSameStation.putExtra("Point",goStation.get(position).getLatLonPoint());
     }
 
-    private String snippet;
-    private String stationName;
-
-    public void onGetPoiMessage(List<PoiItem> poiItems, String poiTitle, LatLonPoint addressPoint, ErrorStatus status) {
-        if(status.getIsError()){
-            belowTitle.setText("该站点暂无信息!");
-            showMessage(status);
-        }else{
-            for(PoiItem item: poiItems){
-                if(item.getTitle().equals(goStation.get(position).getBusStationName() + "(公交站)")){
-                    this.snippet = item.getSnippet();
-                    this.stationName = item.getTitle();
-                }
-            }
-            if(null != snippet){
-//                showSameStation.putExtra("Snippet",snippet);
-                belowTitle.setText(stationName + "该站点公交线路:" + snippet);
-                showMessage(status);
-            }
-        }
-    }
-
-    public void getStationData() throws Exception {
+    public void getStationData() {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl(WebApiURL)
                 //增加返回值为String的支持
@@ -228,13 +176,8 @@ public class BusLineShowActivity extends AppCompatActivity implements
     public void displayListView(List<Station> stationList){
 
         if (stationList.size() > 0) {
-            for (Station station : stationList) {
-                BusStationItem bItem = new BusStationItem();
-                bItem.setBusStationId(String.valueOf(station.getStationId()));
-                bItem.setBusStationName(station.getStationName());
-                goStation.add(bItem);
-            }
 
+            busStation = stationList;
             String startTime = "7:00";
             String endTime = "17:10";
             timeText = "首车:" +
@@ -250,7 +193,7 @@ public class BusLineShowActivity extends AppCompatActivity implements
             timeText = "无该公交信息!!";
         }
 
-        busLineView.setBusStation(goStation);
+        busLineView.setBusStation(busStation);
         busName.setText(busLineName);
         destination.setText(destinationText);
         timeAndPrice.setText(timeText);
