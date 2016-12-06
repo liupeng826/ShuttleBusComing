@@ -33,13 +33,13 @@ import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.Map;
 
+import static com.liupeng.shuttleBusComing.utils.Initialize.FILENAME;
+import static com.liupeng.shuttleBusComing.utils.Initialize.UUID_KEY;
+
 public class MainActivity extends CheckPermissionsActivity
         implements BottomNavigationBar.OnTabSelectedListener {
-    private ArrayList<Fragment> fragments;
 
-    final String URL = "http://180.76.169.196:8000/";
-    final String mFileName = "BusLine";
-    final String mUUIDKey = "UUID_KEY";
+    private ArrayList<Fragment> fragments;
     private Intent startLocationServiceIntent;
 //    private AMapLocationClient locationClient = null;
 //    private AMapLocationClientOption locationOption = new AMapLocationClientOption();
@@ -129,11 +129,11 @@ public class MainActivity extends CheckPermissionsActivity
         super.onStart();
         // 每次重新回到界面的时候注册广播接收者
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.locationReceiver");
+        filter.addAction("com.liupeng.shuttleBusComing.locationReceiver");
         registerReceiver(mainReceiver, filter);
 
         IntentFilter busLineFilter = new IntentFilter();
-        busLineFilter.addAction("com.BusLineBroadcast");
+        busLineFilter.addAction("com.liupeng.shuttleBusComing.BusLineBroadcast");
         registerReceiver(busLineReceiver, busLineFilter);
 
         //先注册触发器再开启服务发送广播
@@ -214,24 +214,18 @@ public class MainActivity extends CheckPermissionsActivity
 //    };
 //
 
-    private boolean poiFlag = false;
-
     private LocationMessage locationMessage;
     private ErrorStatus locationErrorStatus;
 
     private BroadcastReceiver mainReceiver = new BroadcastReceiver() {
-
         @Override
         public void onReceive(Context context, Intent intent) {
             locationErrorStatus = intent.getParcelableExtra("ErrorStatus");
-            if (locationErrorStatus.getIsError()) {
-
-            } else {
+            if (!locationErrorStatus.getIsError()) {
                 locationMessage = intent.getExtras().getParcelable("Location");
-                if (null == mGetLocationMessage) {
+                //if (null == mGetLocationMessage) {
                     mGetLocationMessage.OnReceiveMessage(locationMessage, locationErrorStatus);
-                }
-                poiFlag = true;
+                //}
             }
         }
     };
@@ -255,7 +249,6 @@ public class MainActivity extends CheckPermissionsActivity
                     mGetBusLineMessage.OnReceiveBusLineMessage(busLineItems, busLineErrorStatus);
                     Initialize.RECEIVED = true;
                 }
-
             }
         }
     };
@@ -312,8 +305,8 @@ public class MainActivity extends CheckPermissionsActivity
 
         try {
             // 读取存储数据
-            SharedPreferences settings = getSharedPreferences(mFileName, MODE_PRIVATE);
-            mUUID = settings.getString(mUUIDKey, "");
+            SharedPreferences settings = getSharedPreferences(FILENAME, MODE_PRIVATE);
+            mUUID = settings.getString(UUID_KEY, "");
 
             if (mUUID.equals("")) {
 
@@ -352,9 +345,9 @@ public class MainActivity extends CheckPermissionsActivity
                 // 存储UUID
                 //步骤1：获取输入值
                 //步骤2-1：创建一个SharedPreferences.Editor接口对象，lock表示要写入的XML文件名
-                SharedPreferences.Editor editor = getSharedPreferences(mFileName, MODE_PRIVATE).edit();
+                SharedPreferences.Editor editor = getSharedPreferences(FILENAME, MODE_PRIVATE).edit();
                 //步骤2-2：将获取过来的值放入文件
-                editor.putString(mUUIDKey, mUUID);
+                editor.putString(UUID_KEY, mUUID);
                 //步骤3：提交
                 editor.apply();
             }
@@ -365,13 +358,11 @@ public class MainActivity extends CheckPermissionsActivity
 
 
     private OnGetLocationMessage mGetLocationMessage;
-
     public void setOnGetLocationMessage(OnGetLocationMessage onGetLocationMessage) {
         mGetLocationMessage = onGetLocationMessage;
     }
 
     private OnGetBusLineMessage mGetBusLineMessage;
-
     public void setOnGetBusLineMessage(OnGetBusLineMessage onGetBusLineMessage) {
         mGetBusLineMessage = onGetBusLineMessage;
     }

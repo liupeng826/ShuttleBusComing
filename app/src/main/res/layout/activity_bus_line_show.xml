@@ -184,6 +184,121 @@
                     android:text="@string/click_show"
                     />
             </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:orientation="vertical"
+                >
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:padding="7dp"
+                    >
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        >
+                        <ImageView
+                            android:id="@+id/imgView_favorite"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_favorite"
+                            />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_relocate"
+                            />
+
+                        <ImageView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_reminder"
+                            />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="0dp"
+                        android:layout_weight="1"
+                        android:orientation="horizontal"
+                        >
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="4dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/favorite"
+                            android:textColor="@color/gray"
+                            android:textSize="10sp"
+                            />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="4dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/relocate"
+                            android:textColor="@color/gray"
+                            android:textSize="10sp"
+                            />
+
+                        <TextView
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="4dp"
+                            android:layout_weight="1"
+                            android:gravity="center"
+                            android:text="@string/reminder"
+                            android:textColor="@color/gray"
+                            android:textSize="10sp"
+                            />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_favorite"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_relocate"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        />
+
+                    <ImageButton
+                        android:id="@+id/imgBtn_reminder"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#00000000"
+                        />
+                </LinearLayout>
+
+            </RelativeLayout>
         </LinearLayout>
 
 

@@ -104,6 +104,10 @@
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/home_tab_line.png"
     },
     {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_relocate.png",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/ic_relocate.png"
+    },
+    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/offlinearrow_but_normal.9.png",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/offlinearrow_but_normal.9.png"
     },
@@ -528,6 +532,10 @@
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/love.png"
     },
     {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_favorite.png",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/ic_favorite.png"
+    },
+    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/map_icon_driver_car.png",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/map_icon_driver_car.png"
     },
@@ -608,10 +616,6 @@
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/oy.png"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_logo_blue.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/ic_logo_blue.png"
-    },
-    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/icon_de_shop.png",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/icon_de_shop.png"
     },
@@ -630,6 +634,10 @@
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/icon_talk.png",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/icon_talk.png"
+    },
+    {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_favoriteon.png",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/ic_favoriteon.png"
     },
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/default_image.png",
@@ -760,6 +768,10 @@
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/search.png"
     },
     {
+        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/ic_reminder.png",
+        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/ic_reminder.png"
+    },
+    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/icon_btn_deleteperson.png",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/icon_btn_deleteperson.png"
     },
@@ -812,10 +824,6 @@
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/icon_me_card.png"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/location_msg.9.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/location_msg.9.png"
-    },
-    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/chatting_biaoqing_btn_enable.png",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/chatting_biaoqing_btn_enable.png"
     },
@@ -850,10 +858,6 @@
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/chatto_voice_playing.png",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/chatto_voice_playing.png"
-    },
-    {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/large_logo_default_4.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-hdpi/large_logo_default_4.png"
     },
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-hdpi/home_station_ic.png",

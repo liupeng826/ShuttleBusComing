@@ -15,7 +15,7 @@
         >
 
         <LinearLayout
-            android:id="@+id/index_blank"
+            android:id="@+id/lineSearchBtn"
             android:layout_width="match_parent"
             android:layout_height="0dp"
             android:layout_marginLeft="6dp"
@@ -23,7 +23,6 @@
             android:layout_marginTop="6dp"
             android:layout_weight="1"
             android:background="@drawable/corners_bg"
-            android:onClick="search_index"
             android:orientation="horizontal"
             android:padding="7dp"
             >
@@ -139,7 +138,7 @@
                     android:layout_height="match_parent">
 
                     <ImageButton
-                        android:id="@+id/imgBtn_favorite"
+                        android:id="@+id/imgBtn_myFavorite"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"

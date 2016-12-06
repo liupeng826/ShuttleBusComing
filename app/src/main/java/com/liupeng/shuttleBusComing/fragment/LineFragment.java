@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -40,6 +41,7 @@ import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
 public class LineFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
 
     private MainActivity mainActivity;
+//    private LinearLayout searchBtn;
     private LinearLayout mainMessage;
     private RelativeLayout hideBg;
     private LineAdapter lineAdapter;
@@ -49,6 +51,8 @@ public class LineFragment extends Fragment implements AdapterView.OnItemClickLis
     ImageButton imgBtn_map;
     @BindView(R.id.lines_list)
     ListView listView;
+    @BindView(R.id.lineSearchBtn)
+    LinearLayout searchBtn;
 
     @Nullable
     @Override
@@ -63,9 +67,11 @@ public class LineFragment extends Fragment implements AdapterView.OnItemClickLis
     public void initView(View view) {
         mainMessage = $(view, R.id.main_message);
         hideBg = $(view, R.id.hide_bg);
+//        searchBtn = $(view, R.id.searchBtn);
         //listView = $(view, R.id.lines_list);
         mainActivity = (MainActivity) getActivity();
         imgBtn_map.setOnClickListener(this);
+        searchBtn.setOnClickListener(this);
         listView.setOnItemClickListener(this);
     }
 
@@ -78,6 +84,9 @@ public class LineFragment extends Fragment implements AdapterView.OnItemClickLis
         switch (view.getId()) {
             case R.id.imgBtn_map:
                 startActivity(new Intent(getActivity(), MapActivity.class));
+                break;
+            case R.id.lineSearchBtn:
+                Log.i("search:","");
                 break;
             default:
                 break;

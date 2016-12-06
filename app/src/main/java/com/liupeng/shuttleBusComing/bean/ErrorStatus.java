@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 
 /**
- * Created by chunr on 2016/5/25.
+ * Created by LiuPeng on 2016/5/25.
  */
 public class ErrorStatus implements Parcelable{
     private boolean isError;

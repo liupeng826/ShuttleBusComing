@@ -5,6 +5,8 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -21,6 +23,8 @@ import com.liupeng.shuttleBusComing.views.BusLineView;
 import java.util.ArrayList;
 import java.util.List;
 
+import butterknife.BindView;
+import butterknife.ButterKnife;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
@@ -44,7 +48,7 @@ public class BusLineShowActivity extends AppCompatActivity implements
 
     private LinearLayout busLineMainPage;
     private RelativeLayout hidePage;
-    private BusLineView busLineView;
+    //private BusLineView busLineView;
     private String busLineName;
     private String destinationText;
     private String timeText;
@@ -53,10 +57,24 @@ public class BusLineShowActivity extends AppCompatActivity implements
     private int mSelectedBusLineNumber;
     private List<Station> busStation;
 
+    @BindView(R.id.imgView_favorite)
+    ImageView imgView_favorite;
+    @BindView(R.id.imgBtn_favorite)
+    ImageButton imgBtn_favorite;
+    @BindView(R.id.imgBtn_relocate)
+    ImageButton imgBtn_relocate;
+    @BindView(R.id.imgBtn_reminder)
+    ImageButton imgBtn_reminder;
+    @BindView(R.id.bus_station)
+    BusLineView busLineView;
+//    @BindView(R.id.back)
+//    Button back;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bus_line_show);
+        ButterKnife.bind(this);
         initData();
         initView();
     }
@@ -78,10 +96,12 @@ public class BusLineShowActivity extends AppCompatActivity implements
         busLineMainPage = $(R.id.busline_message);
         hidePage = $(R.id.hide_bus);
 
-        busLineView = $(R.id.bus_station);
-
+//        busLineView = $(R.id.bus_station);
         back = $(R.id.back);
         back.setOnClickListener(this);
+        imgBtn_favorite.setOnClickListener(this);
+        imgBtn_relocate.setOnClickListener(this);
+        imgBtn_reminder.setOnClickListener(this);
         busLineView.setOnStationClickListener(this,"else");
     }
 
@@ -95,6 +115,13 @@ public class BusLineShowActivity extends AppCompatActivity implements
         switch(view.getId()){
             case R.id.back:
                 finish();
+                break;
+            case R.id.imgBtn_favorite:
+                imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
+                break;
+            case R.id.imgBtn_relocate:
+                break;
+            case R.id.imgBtn_reminder:
                 break;
             default:
                 break;

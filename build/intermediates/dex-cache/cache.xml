@@ -16,7 +16,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="74e749d988dd3e0fb95f6354dd33c48441edce6f">
+        sha1="dd5b5e96795a97d00eeb154007f4359192acca2d">
         <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9ef640d07d935f956ed26a9042c305eb672270de/classes.dex" />
     </item>
     <item
@@ -115,7 +115,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="a05bf9611402b16a2eb9f22cd6bf3852cf42eb83">
+        sha1="f4650ac9f0910cbe4119b21561b7268c94cf96f6">
         <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_6f5989d61c278139a5aa973edcab7cec698ad0c8/classes.dex" />
     </item>
     <item

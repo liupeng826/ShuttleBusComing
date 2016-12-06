@@ -98,11 +98,6 @@ public class LocationService extends Service implements AMapLocationListener {
 //        }
     }
 
-
-
-
-
-
 //    private Intent startPoiSearchServiceIntent;
 
     private ErrorStatus errorStatus;
@@ -113,7 +108,7 @@ public class LocationService extends Service implements AMapLocationListener {
         errorStatus = new ErrorStatus();
 //        COUNT++;
 //        Log.i("testAki","poiService启动次数:第" + COUNT + "次");
-        Intent intent = new Intent("com.locationReceiver");
+        Intent intent = new Intent("com.liupeng.shuttleBusComing.locationReceiver");
 //        startPoiSearchServiceIntent = new Intent(LocationService.this,PoiSearchService.class);
         LocationMessage locationMessage = null;
         if (aMapLocation != null) {
@@ -171,7 +166,6 @@ public class LocationService extends Service implements AMapLocationListener {
                         + aMapLocation.getErrorCode() + ", errInfo:"
                         + aMapLocation.getErrorInfo());
             }
-//            Log.i("Aki","----------");
 
         }else{
             errorStatus.setReturnCode(Initialize.NO_RESULT_CODE);
@@ -181,7 +175,6 @@ public class LocationService extends Service implements AMapLocationListener {
 
         intent.putExtra("ErrorStatus",errorStatus);
 //        startPoiSearchServiceIntent.putExtra("ErrorStatus",errorStatus);
-
         sendBroadcast(intent);
 
 //        startPoiSearch();
@@ -196,12 +189,8 @@ public class LocationService extends Service implements AMapLocationListener {
 //        }*/
 //    }
 
-
     public LocationService() {
     }
-
-
-
 
     @Override
     public IBinder onBind(Intent intent) {

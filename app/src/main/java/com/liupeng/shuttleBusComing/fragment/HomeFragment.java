@@ -22,6 +22,7 @@ import com.liupeng.shuttleBusComing.activities.MainActivity;
 import com.liupeng.shuttleBusComing.activities.MapActivity;
 import com.liupeng.shuttleBusComing.adapter.LineAdapter;
 import com.liupeng.shuttleBusComing.bean.ErrorStatus;
+import com.liupeng.shuttleBusComing.bean.LocationMessage;
 import com.liupeng.shuttleBusComing.utils.ApiService;
 import com.liupeng.shuttleBusComing.utils.CoordinateGson;
 import com.liupeng.shuttleBusComing.utils.Initialize;
@@ -46,7 +47,9 @@ import static com.liupeng.shuttleBusComing.utils.Initialize.FILENAME;
 import static com.liupeng.shuttleBusComing.utils.Initialize.LINE_KEY;
 import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
 
-public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineMessage, View.OnClickListener {
+public class HomeFragment extends Fragment implements
+        MainActivity.OnGetLocationMessage,
+        View.OnClickListener {
 
     private MainActivity mainActivity;
     private BusLineItem busLineItem;
@@ -66,10 +69,12 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
     private Runnable runnable;
     private int mSelectedBusLineNumber;
 
-    @BindView(R.id.imgBtn_favorite)
+    @BindView(R.id.imgBtn_myFavorite)
     ImageButton imgBtn_favorite;
     @BindView(R.id.imgBtn_map)
     ImageButton imgBtn_map;
+    @BindView(R.id.location)
+    TextView locationText;
 
     @Nullable
     @Override
@@ -92,6 +97,7 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
         imgBtn_favorite.setOnClickListener(this);
         imgBtn_map.setOnClickListener(this);
         mainActivity = (MainActivity) getActivity();
+        mainActivity.setOnGetLocationMessage(this);
         nowLine.setOnClickListener(this);
         nowStation.setOnClickListener(this);
     }
@@ -123,10 +129,10 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
         return (T) view.findViewById(resId);
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-    }
+//    @Override
+//    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+//        super.onActivityCreated(savedInstanceState);
+//    }
 
     public static HomeFragment newInstance(String content) {
         Bundle args = new Bundle();
@@ -139,7 +145,7 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
     @Override
     public void onClick(View view) {
         switch (view.getId()) {
-            case R.id.imgBtn_favorite:
+            case R.id.imgBtn_myFavorite:
                 break;
             case R.id.imgBtn_map:
                 startActivity(new Intent(getActivity(), MapActivity.class));
@@ -202,25 +208,23 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
 //        }
     }
 
-    @Override
-    public void OnReceiveBusLineMessage(ArrayList<Map<String, BusLineItem>> busLineItems, ErrorStatus errorStatus) {
-
-        if (!errorStatus.getIsError()) {
-            busLineMessage = busLineItems;
-            busLineItem = busLineItems.get(0).get("GoBusLineMessage");
-            recentLine.setText(busLineItem.getBusLineName());
-            //String result = getNextStation(busLineItem.getBusStations());
-            String result = "中山门";
-            String forward = null;
-            if (!Initialize.ERROR.equals(result)) {
-                forward = isLast ? "终点站:" : "下一站:";
-                nextStation.setText(forward + result);
-            }
-            showMessage();
-        }
-    }
-
-
+//    @Override
+//    public void OnReceiveBusLineMessage(ArrayList<Map<String, BusLineItem>> busLineItems, ErrorStatus errorStatus) {
+//
+//        if (!errorStatus.getIsError()) {
+//            busLineMessage = busLineItems;
+//            busLineItem = busLineItems.get(0).get("GoBusLineMessage");
+//            recentLine.setText(busLineItem.getBusLineName());
+//            //String result = getNextStation(busLineItem.getBusStations());
+//            String result = "中山门";
+//            String forward = null;
+//            if (!Initialize.ERROR.equals(result)) {
+//                forward = isLast ? "终点站:" : "下一站:";
+//                nextStation.setText(forward + result);
+//            }
+//            showMessage();
+//        }
+//    }
 
 //    public String getNextStation(List<BusStationItem> stationItems) {
 //        int correctLocation = -1;
@@ -286,5 +290,21 @@ public class HomeFragment extends Fragment implements MainActivity.OnGetBusLineM
                 Toast.makeText(getActivity(), mSelectedBusLineNumber + "号线班车位置获取错误", Toast.LENGTH_SHORT).show();
             }
         });
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+    }
+
+    @Override
+    public void OnReceiveMessage(LocationMessage locationMessage, ErrorStatus errorStatus) {
+//        locationText.setHint(locationMessage.getCity() + locationMessage.getDistrict() + locationMessage.getStreet());
+        locationText.setText(locationMessage.getCity() + locationMessage.getDistrict() + locationMessage.getStreet());
     }
 }

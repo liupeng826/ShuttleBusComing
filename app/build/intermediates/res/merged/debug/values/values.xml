@@ -770,6 +770,7 @@
     <string name="error_network">搜索失败,请检查网络连接！</string>
     <string name="error_other">未知错误，请稍后重试!错误码为</string>
     <string name="expression2">表情</string>
+    <string name="favorite">收藏</string>
     <string name="games">游戏</string>
     <string name="geodesic_demo">绘制大地曲线</string>
     <string name="geodesic_description">绘制大地曲线功能</string>
@@ -865,6 +866,8 @@
     <string name="regeocoder_demo">逆地理编码功能</string>
     <string name="regeocoder_description">介绍regeocoder逆地理编码功能</string>
     <string name="regist">注册</string>
+    <string name="relocate">刷新</string>
+    <string name="reminder">提醒</string>
     <string name="remove">"删除"</string>
     <string name="report_time">发布时间</string>
     <string name="route">路线</string>

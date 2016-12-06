@@ -7,6 +7,9 @@
     <string name="setting">设置</string>
     <string name="action_about">关于</string>
     <string name="location">开启定位</string>
+    <string name="favorite">收藏</string>
+    <string name="relocate">刷新</string>
+    <string name="reminder">提醒</string>
 
     <string name="action_settings">Settings</string>
 

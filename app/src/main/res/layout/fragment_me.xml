@@ -62,7 +62,7 @@
                     android:layout_height="80.0dip"
                     android:layout_marginLeft="10dp"
                     android:layout_marginRight="10dp"
-                    android:src="@drawable/ic_sex_female"/>
+                    android:src="@drawable/choosecity_tianjin_img"/>
 
                 <TextView
                     android:id="@+id/tvname"

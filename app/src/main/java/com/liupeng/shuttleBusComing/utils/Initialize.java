@@ -26,8 +26,9 @@ public class Initialize {
     public static final String WebApiURL = "http://180.76.169.196:8000/";
     public static boolean IS_LOGGING = false;
 
-    public static final String FILENAME = "ShuttleBusComingsj";
+    public static final String FILENAME = "ShuttleBusComing";
     public static final String LINE_KEY = "LINE_KEY";
+    public static final String UUID_KEY = "UUID_KEY";
 
     public static final int BUTTON = 1;
     public static final int CURSOR = 2;
@@ -141,7 +142,7 @@ public class Initialize {
         IcoUtil.init(context);
         StyleUtil.init(context);
         IntentFilter filter = new IntentFilter();
-        filter.addAction("com.locationReceiver");
+        filter.addAction("com.liupeng.shuttleBusComing.locationReceiver");
         context.registerReceiver(localReceiver,filter);
     }
 
