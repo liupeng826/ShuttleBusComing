@@ -3000,8 +3000,8 @@ containing a value of this type.
         public static final int notification_bg_normal=0x7f02011c;
         public static final int notification_bg_normal_pressed=0x7f02011d;
         public static final int notification_icon_background=0x7f02011e;
-        public static final int notification_template_icon_bg=0x7f02016b;
-        public static final int notification_template_icon_low_bg=0x7f02016c;
+        public static final int notification_template_icon_bg=0x7f02016a;
+        public static final int notification_template_icon_low_bg=0x7f02016b;
         public static final int notification_tile_bg=0x7f02011f;
         public static final int notify_panel_notification_icon_bg=0x7f020120;
         public static final int offline_back=0x7f020121;
@@ -3060,7 +3060,7 @@ containing a value of this type.
         public static final int title_background=0x7f020156;
         public static final int traffic_off=0x7f020157;
         public static final int traffic_on=0x7f020158;
-        public static final int transparent=0x7f02016d;
+        public static final int transparent=0x7f02016c;
         public static final int type_select_btn=0x7f020159;
         public static final int type_select_btn_nor=0x7f02015a;
         public static final int type_select_btn_pressed=0x7f02015b;
@@ -3075,10 +3075,9 @@ containing a value of this type.
         public static final int walk=0x7f020164;
         public static final int weixin_normal=0x7f020165;
         public static final int weixin_pressed=0x7f020166;
-        public static final int welcome=0x7f020167;
-        public static final int wo=0x7f020168;
-        public static final int wp=0x7f020169;
-        public static final int zx=0x7f02016a;
+        public static final int wo=0x7f020167;
+        public static final int wp=0x7f020168;
+        public static final int zx=0x7f020169;
     }
     public static final class id {
         public static final int action0=0x7f0d00ba;
