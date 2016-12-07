@@ -3,7 +3,8 @@ package com.liupeng.shuttleBusComing.utils;
 import java.util.List;
 
 /**
- * Created by LiuPeng on 2016/11/12.
+ * Created by liupeng on 2016/12/7.
+ * E-mail: liupeng826@hotmail.com
  */
 
 public class BusLineGson {

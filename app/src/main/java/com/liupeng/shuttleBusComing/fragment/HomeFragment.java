@@ -26,7 +26,7 @@ import com.liupeng.shuttleBusComing.bean.LocationMessage;
 import com.liupeng.shuttleBusComing.utils.ApiService;
 import com.liupeng.shuttleBusComing.utils.CoordinateGson;
 import com.liupeng.shuttleBusComing.utils.Initialize;
-import com.liupeng.shuttleBusComing.utils.Station;
+import com.liupeng.shuttleBusComing.bean.Station;
 
 import java.util.ArrayList;
 import java.util.Map;

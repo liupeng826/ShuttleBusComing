@@ -1,5 +1,7 @@
 package com.liupeng.shuttleBusComing.activities;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -15,12 +17,13 @@ import com.liupeng.shuttleBusComing.Interfaces.OnBusStationClickListener;
 import com.liupeng.shuttleBusComing.R;
 import com.liupeng.shuttleBusComing.bean.ErrorStatus;
 import com.liupeng.shuttleBusComing.bean.LocationMessage;
+import com.liupeng.shuttleBusComing.bean.Station;
 import com.liupeng.shuttleBusComing.utils.ApiService;
-import com.liupeng.shuttleBusComing.utils.Station;
 import com.liupeng.shuttleBusComing.utils.StationGson;
 import com.liupeng.shuttleBusComing.views.BusLineView;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -34,7 +37,14 @@ import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
+import static com.liupeng.shuttleBusComing.utils.Initialize.FAVORITELINE_KEY;
+import static com.liupeng.shuttleBusComing.utils.Initialize.FILENAME;
 import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
+
+/**
+ * Created by liupeng on 2016/12/7.
+ * E-mail: liupeng826@hotmail.com
+ */
 
 public class BusLineShowActivity extends AppCompatActivity implements
         View.OnClickListener, OnBusStationClickListener {
@@ -49,12 +59,11 @@ public class BusLineShowActivity extends AppCompatActivity implements
     private LinearLayout busLineMainPage;
     private RelativeLayout hidePage;
     //private BusLineView busLineView;
-    private String busLineName;
+    private int busLineNo;
     private String destinationText;
     private String timeText;
 
     private LocationMessage locationMessage;
-    private int mSelectedBusLineNumber;
     private List<Station> busStation;
 
     @BindView(R.id.imgView_favorite)
@@ -80,10 +89,9 @@ public class BusLineShowActivity extends AppCompatActivity implements
     }
 
     public void initData(){
-            busStation = new ArrayList<>();
-            mSelectedBusLineNumber = getIntent().getIntExtra("LineNumber", 1);
-            busLineName = mSelectedBusLineNumber + "号线";
-            getStationData();
+        busStation = new ArrayList<>();
+        busLineNo = getIntent().getIntExtra("LineNumber", 1);
+        getStationData();
     }
 
     public void initView(){
@@ -117,7 +125,7 @@ public class BusLineShowActivity extends AppCompatActivity implements
                 finish();
                 break;
             case R.id.imgBtn_favorite:
-                imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
+                updateSharedPreference(FAVORITELINE_KEY + busLineNo, busStation.get(position).getStationName());
                 break;
             case R.id.imgBtn_relocate:
                 break;
@@ -147,7 +155,11 @@ public class BusLineShowActivity extends AppCompatActivity implements
     @Override
     public void OnClickItem(int position) {
 
-//        hideMessage();
+        this.position = position;
+
+        // 标记收藏按钮
+        updateFavorite(FAVORITELINE_KEY + busLineNo, busStation.get(position).getStationName());
+
     }
 
     public void getStationData() {
@@ -161,7 +173,7 @@ public class BusLineShowActivity extends AppCompatActivity implements
                 .build();
         ApiService service = retrofit.create(ApiService.class);//这里采用的是Java的动态代理模式
 
-        service.getStations(mSelectedBusLineNumber)
+        service.getStations(busLineNo)
                 .subscribeOn(Schedulers.newThread())
                 .map(new Func1<StationGson, List<Station>>() {
                     @Override
@@ -221,8 +233,76 @@ public class BusLineShowActivity extends AppCompatActivity implements
         }
 
         busLineView.setBusStation(busStation);
-        busName.setText(busLineName);
+        busName.setText(busLineNo + "号线");
         destination.setText(destinationText);
         timeAndPrice.setText(timeText);
+    }
+
+
+
+    public String[] getSharedPreference(String key) {
+        String regularEx = "#";
+        String[] str = null;
+        SharedPreferences sp = getSharedPreferences(FILENAME, MODE_PRIVATE);
+        String values;
+        values = sp.getString(key, "");
+        if (!values.equals("")) {
+            str = values.split(regularEx);
+        }
+
+        return str;
+    }
+
+    public void setSharedPreference(String key, String[] values) {
+        String regularEx = "#";
+        String str = "";
+        SharedPreferences sp = getSharedPreferences(FILENAME, Context.MODE_PRIVATE);
+        if (values != null && values.length > 0) {
+            for (String value : values) {
+                str += value;
+                str += regularEx;
+            }
+            SharedPreferences.Editor et = sp.edit();
+            et.putString(key, str);
+            et.apply();
+        }
+    }
+
+    public void updateSharedPreference(String key, String value) {
+
+        List<String> list = new ArrayList<>();
+        String[] keyValue = getSharedPreference(key);
+        if(keyValue != null) {
+            list = new ArrayList<>(Arrays.asList(keyValue));
+        }
+
+        if (list.contains(value)) {
+            list.remove(value);
+            imgView_favorite.setImageResource(R.drawable.ic_favorite);
+        } else {
+            list.add(value);
+            imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
+        }
+
+        String[] strings = new String[list.size()];
+        setSharedPreference(key, list.toArray(strings));
+
+    }
+
+    public void updateFavorite(String key, String value) {
+
+        List<String> list = new ArrayList<>();
+        String[] keyValue = getSharedPreference(key);
+        if(keyValue != null) {
+            list = new ArrayList<>(Arrays.asList(keyValue));
+        }
+
+        if(list.contains(value))
+        {
+            imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
+        }
+        else{
+            imgView_favorite.setImageResource(R.drawable.ic_favorite);
+        }
     }
 }

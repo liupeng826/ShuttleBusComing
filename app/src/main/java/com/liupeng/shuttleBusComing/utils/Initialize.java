@@ -29,6 +29,8 @@ public class Initialize {
     public static final String FILENAME = "ShuttleBusComing";
     public static final String LINE_KEY = "LINE_KEY";
     public static final String UUID_KEY = "UUID_KEY";
+    public static final String FAVORITELINE_KEY = "FAVORITELINE_KEY";
+    public static final String FAVORITESTATION_KEY = "FAVORITESTATION_KEY";
 
     public static final int BUTTON = 1;
     public static final int CURSOR = 2;

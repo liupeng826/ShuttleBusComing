@@ -15,7 +15,7 @@ import android.widget.Scroller;
 
 import com.liupeng.shuttleBusComing.Interfaces.OnBusStationClickListener;
 import com.liupeng.shuttleBusComing.utils.Initialize;
-import com.liupeng.shuttleBusComing.utils.Station;
+import com.liupeng.shuttleBusComing.bean.Station;
 
 import java.util.List;
 

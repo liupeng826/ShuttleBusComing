@@ -31,7 +31,7 @@ import com.amap.api.maps.model.Marker;
 import com.amap.api.maps.model.MarkerOptions;
 import com.liupeng.shuttleBusComing.R;
 import com.liupeng.shuttleBusComing.utils.ApiService;
-import com.liupeng.shuttleBusComing.utils.Coordinate;
+import com.liupeng.shuttleBusComing.bean.Coordinate;
 import com.liupeng.shuttleBusComing.utils.CoordinateGson;
 
 import java.security.MessageDigest;
