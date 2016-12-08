@@ -1,7 +1,6 @@
 package com.liupeng.shuttleBusComing.fragment;
 
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
@@ -18,17 +17,22 @@ import android.widget.Toast;
 import com.amap.api.services.busline.BusLineItem;
 import com.liupeng.shuttleBusComing.R;
 import com.liupeng.shuttleBusComing.activities.BusLineShowActivity;
+import com.liupeng.shuttleBusComing.activities.FavoriteActivity;
 import com.liupeng.shuttleBusComing.activities.MainActivity;
 import com.liupeng.shuttleBusComing.activities.MapActivity;
 import com.liupeng.shuttleBusComing.adapter.LineAdapter;
+import com.liupeng.shuttleBusComing.bean.Coordinate;
 import com.liupeng.shuttleBusComing.bean.ErrorStatus;
 import com.liupeng.shuttleBusComing.bean.LocationMessage;
+import com.liupeng.shuttleBusComing.bean.SPMap;
+import com.liupeng.shuttleBusComing.bean.Station;
 import com.liupeng.shuttleBusComing.utils.ApiService;
 import com.liupeng.shuttleBusComing.utils.CoordinateGson;
 import com.liupeng.shuttleBusComing.utils.Initialize;
-import com.liupeng.shuttleBusComing.bean.Station;
+import com.liupeng.shuttleBusComing.utils.SPUtil;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 import butterknife.BindView;
@@ -41,10 +45,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-import static android.content.Context.MODE_PRIVATE;
 import static com.liupeng.shuttleBusComing.utils.Initialize.FETCH_TIME_INTERVAL;
-import static com.liupeng.shuttleBusComing.utils.Initialize.FILENAME;
-import static com.liupeng.shuttleBusComing.utils.Initialize.LINE_KEY;
 import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
 
 public class HomeFragment extends Fragment implements
@@ -52,7 +53,6 @@ public class HomeFragment extends Fragment implements
         View.OnClickListener {
 
     private MainActivity mainActivity;
-    private BusLineItem busLineItem;
     private LinearLayout mainMessage;
     private RelativeLayout hideBg;
     private TextView recentStation;
@@ -61,7 +61,6 @@ public class HomeFragment extends Fragment implements
 
     private LinearLayout nowLine;
     private LinearLayout nowStation;
-    private boolean isFirst = true;
     private LineAdapter stationAdapter;
     private ArrayList<Map<String, BusLineItem>> busLineMessage;
     private boolean isLast = false;
@@ -106,22 +105,23 @@ public class HomeFragment extends Fragment implements
 
     public void initData(){
 
-        // 读取存储数据
-        SharedPreferences settings = getActivity().getSharedPreferences(FILENAME, MODE_PRIVATE);
-        mSelectedBusLineNumber = settings.getInt(LINE_KEY, 1);
+	    List<SPMap> sPMapList = SPUtil.getAllFavoriteKey(getContext());
+	    if(sPMapList.size()>0){
+	        mSelectedBusLineNumber = Integer.valueOf(sPMapList.get(0).getLine());
 
-        recentStation.setText("日报大厦");
-        recentLine.setText(mSelectedBusLineNumber + "号线");
+	        recentStation.setText(sPMapList.get(0).getStationName().get(0).toString());
+	        recentLine.setText(sPMapList.get(0).getLine() + "号线");
 
-        getDataTask();
+	        getDataTask();
 
-//            String result = getNextStation(busLineItem.getBusStations());
-        String result = "中山门";
-        String forward = null;
-        if (!Initialize.ERROR.equals(result)) {
-            forward = isLast ? "终点站:" : "下一站:";
-            nextStation.setText(forward + result);
-        }
+	//            String result = getNextStation(busLineItem.getBusStations());
+	        String result = "中山门";
+	        String forward = null;
+	        if (!Initialize.ERROR.equals(result)) {
+	            forward = isLast ? "终点站:" : "下一站:";
+	            nextStation.setText(forward + result);
+	        }
+	    }
         showMessage();
     }
 
@@ -146,6 +146,7 @@ public class HomeFragment extends Fragment implements
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.imgBtn_myFavorite:
+	            startActivity(new Intent(getActivity(), FavoriteActivity.class));
                 break;
             case R.id.imgBtn_map:
                 startActivity(new Intent(getActivity(), MapActivity.class));
@@ -279,7 +280,7 @@ public class HomeFragment extends Fragment implements
             public void onResponse(Call<CoordinateGson> call, Response<CoordinateGson> response) {
                 //处理请求成功
                 if (response.body().getData() != null) {
-                    CoordinateGson.DataBean dataBean;
+                    Coordinate dataBean;
                     dataBean = response.body().getData();
                 }
             }

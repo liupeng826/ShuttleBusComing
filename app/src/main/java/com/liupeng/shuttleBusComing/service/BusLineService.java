@@ -16,6 +16,7 @@ import com.amap.api.services.busline.BusStationQuery;
 import com.amap.api.services.busline.BusStationResult;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
+import com.liupeng.shuttleBusComing.bean.Coordinate;
 import com.liupeng.shuttleBusComing.bean.ErrorStatus;
 import com.liupeng.shuttleBusComing.bean.PoiMessage;
 import com.liupeng.shuttleBusComing.utils.ApiService;
@@ -303,7 +304,7 @@ public class BusLineService extends Service {
 
                 }else {
 
-                    CoordinateGson.DataBean dataBean;
+                    Coordinate dataBean;
                     dataBean = response.body().getData();
 
                 }

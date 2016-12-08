@@ -68,7 +68,13 @@
         <activity
             android:name=".activities.MapActivity" android:screenOrientation="portrait">
         </activity>
-        <activity android:name=".activities.BusLineShowActivity" />
+        <activity
+            android:name=".activities.BusLineShowActivity" android:screenOrientation="portrait">
+        </activity>
+
+        <activity
+            android:name=".activities.FavoriteActivity" android:screenOrientation="portrait">
+        </activity>
     </application>
 
 </manifest>

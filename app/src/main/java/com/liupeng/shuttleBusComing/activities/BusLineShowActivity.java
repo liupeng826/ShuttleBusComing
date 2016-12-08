@@ -1,7 +1,5 @@
 package com.liupeng.shuttleBusComing.activities;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
@@ -19,6 +17,7 @@ import com.liupeng.shuttleBusComing.bean.ErrorStatus;
 import com.liupeng.shuttleBusComing.bean.LocationMessage;
 import com.liupeng.shuttleBusComing.bean.Station;
 import com.liupeng.shuttleBusComing.utils.ApiService;
+import com.liupeng.shuttleBusComing.utils.SPUtil;
 import com.liupeng.shuttleBusComing.utils.StationGson;
 import com.liupeng.shuttleBusComing.views.BusLineView;
 
@@ -38,7 +37,6 @@ import rx.functions.Func1;
 import rx.schedulers.Schedulers;
 
 import static com.liupeng.shuttleBusComing.utils.Initialize.FAVORITELINE_KEY;
-import static com.liupeng.shuttleBusComing.utils.Initialize.FILENAME;
 import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
 
 /**
@@ -53,15 +51,12 @@ public class BusLineShowActivity extends AppCompatActivity implements
     private TextView destination;
     private TextView timeAndPrice;
     private TextView belowTitle;
-    private Button back;
     private RelativeLayout waiting;
-
     private LinearLayout busLineMainPage;
     private RelativeLayout hidePage;
-    //private BusLineView busLineView;
     private int busLineNo;
     private String destinationText;
-    private String timeText;
+    private String driverText;
 
     private LocationMessage locationMessage;
     private List<Station> busStation;
@@ -105,7 +100,7 @@ public class BusLineShowActivity extends AppCompatActivity implements
         hidePage = $(R.id.hide_bus);
 
 //        busLineView = $(R.id.bus_station);
-        back = $(R.id.back);
+        Button back = $(R.id.back);
         back.setOnClickListener(this);
         imgBtn_favorite.setOnClickListener(this);
         imgBtn_relocate.setOnClickListener(this);
@@ -156,10 +151,8 @@ public class BusLineShowActivity extends AppCompatActivity implements
     public void OnClickItem(int position) {
 
         this.position = position;
-
         // 标记收藏按钮
         updateFavorite(FAVORITELINE_KEY + busLineNo, busStation.get(position).getStationName());
-
     }
 
     public void getStationData() {
@@ -179,15 +172,18 @@ public class BusLineShowActivity extends AppCompatActivity implements
                     @Override
                     public List<Station> call(StationGson stationGson) { //
                         List<Station> stationList = new ArrayList<Station>();
-                        for (StationGson.DataBean dataBean : stationGson.getData()) {
-                            Station station = new Station();
-                            station.setline(dataBean.getLine());
-                            station.setStationId(dataBean.getStationId());
-                            station.setStationName(dataBean.getStationName());
-                            station.setLat(dataBean.getLat());
-                            station.setLng(dataBean.getLng());
-                            station.setUpdateTime(dataBean.getUpdateTime());
-                            stationList.add(station);
+                        for (Station dataBean : stationGson.getData()) {
+//                            Station station = new Station();
+//                            station.setStationId(dataBean.getStationId());
+//                            station.setLine(dataBean.getLine());
+//                            station.setStationName(dataBean.getStationName());
+//                            station.setLat(dataBean.getLat());
+//                            station.setLng(dataBean.getLng());
+//                            station.setReachTime(dataBean.getReachTime());
+//                            station.setBusNo(dataBean.getBusNo());
+//                            station.setDriverName(dataBean.getDriverName());
+//                            station.setUpdateTime(dataBean.getUpdateTime());
+                            stationList.add(dataBean);
                         }
                         return stationList; // 返回类型
                     }
@@ -214,64 +210,36 @@ public class BusLineShowActivity extends AppCompatActivity implements
 
     public void displayListView(List<Station> stationList){
 
+        String timeText;
         if (stationList.size() > 0) {
 
             busStation = stationList;
-            String startTime = "7:00";
-            String endTime = "17:10";
+            String startTime = busStation.get(0).getReachTime();
+            String endTime = "17:10:00";
             timeText = "首车:" +
                     startTime +
-                    "·" +
+                    " " +
                     "末车:" +
                     endTime;
 
             destinationText = stationList.get(0).getStationName()
                     + "→"
                     + stationList.get(stationList.size() - 1).getStationName();
+            driverText = " " + busStation.get(0).getDriverName() + " " + busStation.get(0).getDriverTel();
         } else {
             timeText = "无该公交信息!!";
         }
 
         busLineView.setBusStation(busStation);
-        busName.setText(busLineNo + "号线");
+        busName.setText(busLineNo + "号线" + driverText);
         destination.setText(destinationText);
         timeAndPrice.setText(timeText);
-    }
-
-
-
-    public String[] getSharedPreference(String key) {
-        String regularEx = "#";
-        String[] str = null;
-        SharedPreferences sp = getSharedPreferences(FILENAME, MODE_PRIVATE);
-        String values;
-        values = sp.getString(key, "");
-        if (!values.equals("")) {
-            str = values.split(regularEx);
-        }
-
-        return str;
-    }
-
-    public void setSharedPreference(String key, String[] values) {
-        String regularEx = "#";
-        String str = "";
-        SharedPreferences sp = getSharedPreferences(FILENAME, Context.MODE_PRIVATE);
-        if (values != null && values.length > 0) {
-            for (String value : values) {
-                str += value;
-                str += regularEx;
-            }
-            SharedPreferences.Editor et = sp.edit();
-            et.putString(key, str);
-            et.apply();
-        }
     }
 
     public void updateSharedPreference(String key, String value) {
 
         List<String> list = new ArrayList<>();
-        String[] keyValue = getSharedPreference(key);
+        String[] keyValue = SPUtil.getSharedPreference(key, this);
         if(keyValue != null) {
             list = new ArrayList<>(Arrays.asList(keyValue));
         }
@@ -285,14 +253,14 @@ public class BusLineShowActivity extends AppCompatActivity implements
         }
 
         String[] strings = new String[list.size()];
-        setSharedPreference(key, list.toArray(strings));
+        SPUtil.setSharedPreference(key, list.toArray(strings), this);
 
     }
 
     public void updateFavorite(String key, String value) {
 
         List<String> list = new ArrayList<>();
-        String[] keyValue = getSharedPreference(key);
+        String[] keyValue = SPUtil.getSharedPreference(key, this);
         if(keyValue != null) {
             list = new ArrayList<>(Arrays.asList(keyValue));
         }

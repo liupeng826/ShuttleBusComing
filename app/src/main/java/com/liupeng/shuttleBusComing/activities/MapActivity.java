@@ -425,7 +425,7 @@ public class MapActivity extends Activity implements LocationSource,
                     mLocations = new ArrayList<LatLng>();
                 }else{
 
-                    CoordinateGson.DataBean dataBean;
+                    Coordinate dataBean;
                     dataBean = response.body().getData();
 
                     // 设置当前地图显示为当前位置

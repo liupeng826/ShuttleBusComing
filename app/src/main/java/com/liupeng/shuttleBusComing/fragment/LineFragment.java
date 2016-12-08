@@ -22,6 +22,7 @@ import com.liupeng.shuttleBusComing.activities.MapActivity;
 import com.liupeng.shuttleBusComing.adapter.LineAdapter;
 import com.liupeng.shuttleBusComing.utils.ApiService;
 import com.liupeng.shuttleBusComing.utils.BusLineGson;
+import com.liupeng.shuttleBusComing.utils.SPUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
+import static com.liupeng.shuttleBusComing.utils.Initialize.LINES_KEY;
 import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
 
 public class LineFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
@@ -161,13 +163,16 @@ public class LineFragment extends Fragment implements AdapterView.OnItemClickLis
                 //处理请求成功
 
                 if (response.body().getData() != null) {
-                    ArrayList<Integer> lineNames = new ArrayList<>();
-                    List<Integer> lineNumbers = response.body().getData();
+                    List<String> lineNames = new ArrayList<>();
+	                List<Integer> lineNumbers = response.body().getData();
                     for(Integer a: lineNumbers){
-                        lineNames.add(a);
+                        lineNames.add(a.toString());
                     }
 
-                    lineAdapter = new LineAdapter(mainActivity, lineNames);
+	                String[] strings = new String[lineNumbers.size()];
+                    SPUtil.setSharedPreference(LINES_KEY, lineNames.toArray(strings), getContext());
+
+                    lineAdapter = new LineAdapter(mainActivity, (ArrayList<Integer>) lineNumbers);
                     listView.setAdapter(lineAdapter);
 
                     showMessage();
