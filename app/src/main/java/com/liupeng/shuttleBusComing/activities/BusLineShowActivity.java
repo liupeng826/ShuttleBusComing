@@ -22,7 +22,6 @@ import com.liupeng.shuttleBusComing.utils.StationGson;
 import com.liupeng.shuttleBusComing.views.BusLineView;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import butterknife.BindView;
@@ -120,7 +119,8 @@ public class BusLineShowActivity extends AppCompatActivity implements
                 finish();
                 break;
             case R.id.imgBtn_favorite:
-                updateSharedPreference(FAVORITELINE_KEY + busLineNo, busStation.get(position).getStationName());
+                //updateSharedPreference(FAVORITELINE_KEY + busLineNo, busStation.get(position).getStationName());
+                updateSharedPreference(FAVORITELINE_KEY, busLineNo + "#" + busStation.get(position).getStationId() + "#" + busStation.get(position).getStationName());
                 break;
             case R.id.imgBtn_relocate:
                 break;
@@ -152,7 +152,8 @@ public class BusLineShowActivity extends AppCompatActivity implements
 
         this.position = position;
         // 标记收藏按钮
-        updateFavorite(FAVORITELINE_KEY + busLineNo, busStation.get(position).getStationName());
+        //updateFavorite(FAVORITELINE_KEY + busLineNo, busStation.get(position).getStationName());
+        updateSharedPreference(FAVORITELINE_KEY, busLineNo + "#" + busStation.get(position).getStationId() + "#" + busStation.get(position).getStationName());
     }
 
     public void getStationData() {
@@ -237,35 +238,20 @@ public class BusLineShowActivity extends AppCompatActivity implements
     }
 
     public void updateSharedPreference(String key, String value) {
-
-        List<String> list = new ArrayList<>();
-        String[] keyValue = SPUtil.getSharedPreference(key, this);
-        if(keyValue != null) {
-            list = new ArrayList<>(Arrays.asList(keyValue));
-        }
-
-        if (list.contains(value)) {
-            list.remove(value);
+        if (SPUtil.getSharedPreference(key, this).equals(value)) {
             imgView_favorite.setImageResource(R.drawable.ic_favorite);
+	        SPUtil.removeSharedPreference(key, this);
         } else {
-            list.add(value);
             imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
+	        SPUtil.setSharedPreference(key, value, this);
         }
-
-        String[] strings = new String[list.size()];
-        SPUtil.setSharedPreference(key, list.toArray(strings), this);
-
     }
 
     public void updateFavorite(String key, String value) {
 
-        List<String> list = new ArrayList<>();
-        String[] keyValue = SPUtil.getSharedPreference(key, this);
-        if(keyValue != null) {
-            list = new ArrayList<>(Arrays.asList(keyValue));
-        }
+        String keyValue = SPUtil.getSharedPreference(key, this);
 
-        if(list.contains(value))
+        if(keyValue.equals(value))
         {
             imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
         }
@@ -273,4 +259,46 @@ public class BusLineShowActivity extends AppCompatActivity implements
             imgView_favorite.setImageResource(R.drawable.ic_favorite);
         }
     }
+
+
+
+
+
+//    public void updateSharedPreference(String key, String value) {
+//
+//        List<String> list = new ArrayList<>();
+//        String[] keyValue = SPUtil.getSharedPreference(key, this);
+//        if(keyValue != null) {
+//            list = new ArrayList<>(Arrays.asList(keyValue));
+//        }
+//
+//        if (list.contains(value)) {
+//            list.remove(value);
+//            imgView_favorite.setImageResource(R.drawable.ic_favorite);
+//        } else {
+//            list.add(value);
+//            imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
+//        }
+//
+//        String[] strings = new String[list.size()];
+//        SPUtil.setSharedPreference(key, list.toArray(strings), this);
+//
+//    }
+//
+//    public void updateFavorite(String key, String value) {
+//
+//        List<String> list = new ArrayList<>();
+//        String[] keyValue = SPUtil.getSharedPreference(key, this);
+//        if(keyValue != null) {
+//            list = new ArrayList<>(Arrays.asList(keyValue));
+//        }
+//
+//        if(list.contains(value))
+//        {
+//            imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
+//        }
+//        else{
+//            imgView_favorite.setImageResource(R.drawable.ic_favorite);
+//        }
+//    }
 }

@@ -21,6 +21,7 @@ public class Coordinate {
     private String lng;
     private String createdTime;
     private String updateTime;
+    private String station;
 
     public long getId() {
         return id;
@@ -46,9 +47,7 @@ public class Coordinate {
         this.roleId = roleId;
     }
 
-    public String getLat() {
-        return lat;
-    }
+    public String getLat() { return lat; }
 
     public void setLat(String lat) {
         this.lat = lat;
@@ -76,5 +75,13 @@ public class Coordinate {
 
     public void setUpdateTime(String updateTime) {
         this.updateTime = updateTime;
+    }
+
+    public String getStation() {
+        return station;
+    }
+
+    public void setStation(String station) {
+        this.station = station;
     }
 }

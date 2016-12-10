@@ -24,31 +24,53 @@ public class SPUtil {
 
 	private static final String regularEx = "#";
 
-	public static String[] getSharedPreference(String key, Context context ) {
-		String[] str = null;
+	public static String getSharedPreference(String key, Context context ) {
+		String str;
 		SharedPreferences sp = context.getSharedPreferences(FILENAME, MODE_PRIVATE);
-		String values;
-		values = sp.getString(key, "");
-		if (!values.equals("")) {
-			str = values.split(regularEx);
-		}
+		str = sp.getString(key, "");
 
 		return str;
 	}
 
-	public static void setSharedPreference(String key, String[] values, Context context) {
-		String str = "";
+//	public static String[] getSharedPreference(String key, Context context ) {
+//		String[] str = null;
+//		SharedPreferences sp = context.getSharedPreferences(FILENAME, MODE_PRIVATE);
+//		String values;
+//		values = sp.getString(key, "");
+//		if (!values.equals("")) {
+//			str = values.split(regularEx);
+//		}
+//
+//		return str;
+//	}
+
+	public static void setSharedPreference(String key, String value, Context context) {
 		SharedPreferences sp = context.getSharedPreferences(FILENAME, MODE_PRIVATE);
-		if (values != null && values.length > 0) {
-			for (String value : values) {
-				str += value;
-				str += regularEx;
-			}
 			SharedPreferences.Editor et = sp.edit();
-			et.putString(key, str);
+			et.putString(key, value);
 			et.apply();
-		}
 	}
+
+	public static void removeSharedPreference(String key, Context context) {
+		SharedPreferences sp = context.getSharedPreferences(FILENAME, MODE_PRIVATE);
+		SharedPreferences.Editor et = sp.edit();
+		et.remove(key);
+		et.apply();
+	}
+
+//	public static void setSharedPreference(String key, String[] values, Context context) {
+//		String str = "";
+//		SharedPreferences sp = context.getSharedPreferences(FILENAME, MODE_PRIVATE);
+//		if (values != null && values.length > 0) {
+//			for (String value : values) {
+//				str += value;
+//				str += regularEx;
+//			}
+//			SharedPreferences.Editor et = sp.edit();
+//			et.putString(key, str);
+//			et.apply();
+//		}
+//	}
 
 	public static List<SPMap> getAllFavoriteKey(Context context){
 		List<SPMap> sPMapList = new ArrayList<SPMap>();

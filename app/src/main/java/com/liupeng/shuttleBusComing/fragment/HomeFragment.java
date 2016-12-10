@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.amap.api.services.busline.BusLineItem;
+import com.amap.api.services.core.LatLonPoint;
+import com.amap.api.services.route.BusRouteResult;
+import com.amap.api.services.route.DriveRouteResult;
+import com.amap.api.services.route.RideRouteResult;
+import com.amap.api.services.route.RouteSearch;
+import com.amap.api.services.route.WalkRouteResult;
 import com.liupeng.shuttleBusComing.R;
 import com.liupeng.shuttleBusComing.activities.BusLineShowActivity;
 import com.liupeng.shuttleBusComing.activities.FavoriteActivity;
@@ -28,8 +35,8 @@ import com.liupeng.shuttleBusComing.bean.SPMap;
 import com.liupeng.shuttleBusComing.bean.Station;
 import com.liupeng.shuttleBusComing.utils.ApiService;
 import com.liupeng.shuttleBusComing.utils.CoordinateGson;
-import com.liupeng.shuttleBusComing.utils.Initialize;
 import com.liupeng.shuttleBusComing.utils.SPUtil;
+import com.liupeng.shuttleBusComing.utils.StationGson;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -44,36 +51,48 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
+import rx.Subscriber;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Func1;
+import rx.schedulers.Schedulers;
 
 import static com.liupeng.shuttleBusComing.utils.Initialize.FETCH_TIME_INTERVAL;
 import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
 
 public class HomeFragment extends Fragment implements
         MainActivity.OnGetLocationMessage,
+		RouteSearch.OnRouteSearchListener,
         View.OnClickListener {
 
     private MainActivity mainActivity;
     private LinearLayout mainMessage;
     private RelativeLayout hideBg;
-    private TextView recentStation;
-    private TextView recentLine;
-    private TextView nextStation;
-
-    private LinearLayout nowLine;
-    private LinearLayout nowStation;
+	private TextView favoriteStationTextView;
+    private TextView recentLineTextView;
+    private TextView nextStationTextView;
+    private LinearLayout nowLineLinearLayout;
+    private LinearLayout nowStationLinearLayout;
     private LineAdapter stationAdapter;
     private ArrayList<Map<String, BusLineItem>> busLineMessage;
     private boolean isLast = false;
     private Handler handler;
     private Runnable runnable;
-    private int mSelectedBusLineNumber;
+    private int busLineNo;
+	Coordinate coordinate;
+	List<Station> stationList;
+	Integer recentStationId;
+	String nextStation;
+	double distance;
+	RouteSearch routeSearch;
 
-    @BindView(R.id.imgBtn_myFavorite)
+	@BindView(R.id.imgBtn_myFavorite)
     ImageButton imgBtn_favorite;
     @BindView(R.id.imgBtn_map)
     ImageButton imgBtn_map;
     @BindView(R.id.location)
     TextView locationText;
+	@BindView(R.id.duration)
+	TextView durationTextView;
 
     @Nullable
     @Override
@@ -88,39 +107,35 @@ public class HomeFragment extends Fragment implements
     public void initView(View view) {
         mainMessage = $(view, R.id.main_message);
         hideBg = $(view, R.id.hide_bg);
-        recentStation = $(view, R.id.recent_stations);
-        recentLine = $(view, R.id.recent_line);
-        nextStation = $(view, R.id.next_station);
-        nowLine = $(view, R.id.now_line);
-        nowStation = $(view, R.id.now_station);
+	    favoriteStationTextView = $(view, R.id.recent_stations);
+        recentLineTextView = $(view, R.id.recent_line);
+        nextStationTextView = $(view, R.id.next_station);
+        nowLineLinearLayout = $(view, R.id.now_line);
+        nowStationLinearLayout = $(view, R.id.now_station);
         imgBtn_favorite.setOnClickListener(this);
         imgBtn_map.setOnClickListener(this);
         mainActivity = (MainActivity) getActivity();
         mainActivity.setOnGetLocationMessage(this);
-        nowLine.setOnClickListener(this);
-        nowStation.setOnClickListener(this);
+        nowLineLinearLayout.setOnClickListener(this);
+        nowStationLinearLayout.setOnClickListener(this);
+
+	    routeSearch = new RouteSearch(getContext());
+	    routeSearch.setRouteSearchListener(this);
     }
 
     private ArrayList<Station> data = new ArrayList<Station>();
 
     public void initData(){
 
+	    //  显示收藏的站点
 	    List<SPMap> sPMapList = SPUtil.getAllFavoriteKey(getContext());
 	    if(sPMapList.size()>0){
-	        mSelectedBusLineNumber = Integer.valueOf(sPMapList.get(0).getLine());
 
-	        recentStation.setText(sPMapList.get(0).getStationName().get(0).toString());
-	        recentLine.setText(sPMapList.get(0).getLine() + "号线");
+		    busLineNo = Integer.valueOf(sPMapList.get(0).getLine());
+		    favoriteStationTextView.setText(sPMapList.get(0).getStationName().get(0).toString());
+	        recentLineTextView.setText(busLineNo + "号线");
 
-	        getDataTask();
-
-	//            String result = getNextStation(busLineItem.getBusStations());
-	        String result = "中山门";
-	        String forward = null;
-	        if (!Initialize.ERROR.equals(result)) {
-	            forward = isLast ? "终点站:" : "下一站:";
-	            nextStation.setText(forward + result);
-	        }
+		    getStationData();
 	    }
         showMessage();
     }
@@ -168,7 +183,7 @@ public class HomeFragment extends Fragment implements
         for (int count = 0; count < poiMessage.size(); count++) {
             name = poiMessage.get(count).getStationName();
             name = name.substring(0, name.indexOf("("));
-            if (name.equals(recentStation.getText().toString())) {
+            if (name.equals(favoriteStationTextView.getText().toString())) {
                 flag = count;
             }
         }
@@ -187,66 +202,10 @@ public class HomeFragment extends Fragment implements
     public void showLine() {
 //        if (null != busLineMessage) {
             Intent intentShowLine = new Intent(getActivity(), BusLineShowActivity.class);
-
-//            intentShowLine.putParcelableArrayListExtra("GoLine",
-//                    (ArrayList<? extends Parcelable>) busLineMessage.get(0)
-//                            .get("GoBusLineMessage")
-//                            .getBusStations());
-//
-//            intentShowLine.putParcelableArrayListExtra("BackLine",
-//                    (ArrayList<? extends Parcelable>) busLineMessage.get(0)
-//                            .get("BackBusLineMessage")
-//                            .getBusStations());
-//
-            intentShowLine.putExtra("LineNumber", mSelectedBusLineNumber);
-//
-//            intentShowLine.putExtra("FirstBus", busLineMessage.get(0)
-//                    .get("GoBusLineMessage").getFirstBusTime());
-//
-//            intentShowLine.putExtra("LastBus", busLineMessage.get(0)
-//                    .get("GoBusLineMessage").getLastBusTime());
+            intentShowLine.putExtra("LineNumber", busLineNo);
             startActivity(intentShowLine);
 //        }
     }
-
-//    @Override
-//    public void OnReceiveBusLineMessage(ArrayList<Map<String, BusLineItem>> busLineItems, ErrorStatus errorStatus) {
-//
-//        if (!errorStatus.getIsError()) {
-//            busLineMessage = busLineItems;
-//            busLineItem = busLineItems.get(0).get("GoBusLineMessage");
-//            recentLine.setText(busLineItem.getBusLineName());
-//            //String result = getNextStation(busLineItem.getBusStations());
-//            String result = "中山门";
-//            String forward = null;
-//            if (!Initialize.ERROR.equals(result)) {
-//                forward = isLast ? "终点站:" : "下一站:";
-//                nextStation.setText(forward + result);
-//            }
-//            showMessage();
-//        }
-//    }
-
-//    public String getNextStation(List<BusStationItem> stationItems) {
-//        int correctLocation = -1;
-//        if (null != mPoiMessage) {
-//            int count = 0;
-//            String busStationName = null;
-//            for (BusStationItem item : stationItems) {
-//                busStationName = mPoiMessage.get(0).getTitle();
-//                busStationName = busStationName.substring(0, busStationName.lastIndexOf("("));
-//                if (item.getBusStationName().indexOf(busStationName) != -1) {
-//                    correctLocation = count;
-//                    break;
-//                }
-//                count++;
-//            }
-//        }
-//        isLast = (correctLocation == (stationItems.size() - 1)) ? true : false;
-//        return (correctLocation == -1) ?
-//                Initialize.ERROR : (isLast ?
-//                (stationItems.get(correctLocation).getBusStationName()) : (stationItems.get(correctLocation + 1).getBusStationName()));
-//    }
 
     private void getDataTask() {
 
@@ -274,26 +233,104 @@ public class HomeFragment extends Fragment implements
                 .build();
         ApiService apiManager = retrofit.create(ApiService.class);//这里采用的是Java的动态代理模式
 
-        Call<CoordinateGson> call = apiManager.getCoordinateData(mSelectedBusLineNumber);
+        Call<CoordinateGson> call = apiManager.getCoordinateData(busLineNo);
         call.enqueue(new Callback<CoordinateGson>() {
             @Override
             public void onResponse(Call<CoordinateGson> call, Response<CoordinateGson> response) {
                 //处理请求成功
                 if (response.body().getData() != null) {
-                    Coordinate dataBean;
-                    dataBean = response.body().getData();
+	                coordinate = response.body().getData();
+	                coordinate.setStation("8");
+	                DisplayStationInformation(coordinate);
                 }
             }
 
             @Override
             public void onFailure(Call<CoordinateGson> call, Throwable t) {
                 //处理请求失败
-                Toast.makeText(getActivity(), mSelectedBusLineNumber + "号线班车位置获取错误", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), busLineNo + "号线班车位置获取错误", Toast.LENGTH_SHORT).show();
             }
         });
     }
 
-    @Override
+	public void getStationData() {
+		Retrofit retrofit = new Retrofit.Builder()
+				.baseUrl(WebApiURL)
+				//增加返回值为String的支持
+				.addConverterFactory(ScalarsConverterFactory.create())
+				//增加返回值为Gson的支持(以实体类返回)
+				.addConverterFactory(GsonConverterFactory.create())
+				.addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+				.build();
+		ApiService service = retrofit.create(ApiService.class);//这里采用的是Java的动态代理模式
+
+		service.getStations(busLineNo)
+				.subscribeOn(Schedulers.newThread())
+				.map(new Func1<StationGson, List<Station>>() {
+					@Override
+					public List<Station> call(StationGson stationGson) { //
+						stationList = new ArrayList<Station>();
+						for (Station dataBean : stationGson.getData()) {
+							stationList.add(dataBean);
+						}
+						return stationList; // 返回类型
+					}
+				})
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Subscriber<List<Station>>() {
+					@Override
+					public void onNext(List<Station> stationList) {
+						getDataTask();
+					}
+
+					@Override
+					public void onCompleted() {
+						Log.i("onCompleted", "onCompleted");
+					}
+
+					@Override
+					public void onError(Throwable e) {
+					}
+				});
+
+	}
+
+	private void DisplayStationInformation(Coordinate coordinate) {
+		recentStationId = Integer.valueOf(coordinate.getStation());
+		LatLonPoint latLonFromPoint = new LatLonPoint(Double.valueOf(coordinate.getLat()), Double.valueOf(coordinate.getLng()));
+		LatLonPoint latLonToPoint = null;
+		Integer favoriteStationId = 0;
+		List<LatLonPoint> passedByPoints = new ArrayList<>();
+		for (int i = recentStationId; i< stationList.size(); i++) {
+			if (favoriteStationTextView.getText().equals(stationList.get(i).getStationName())) {
+				favoriteStationId = i - 1;
+				latLonToPoint = new LatLonPoint(Double.valueOf(coordinate.getLat()), Double.valueOf(coordinate.getLng()));
+				break;
+			} else {
+				passedByPoints.add(new LatLonPoint(Double.valueOf(stationList.get(i).getLat()), Double.valueOf(stationList.get(i).getLng())));
+			}
+		}
+
+		RouteSearch.FromAndTo fromAndTo = new RouteSearch.FromAndTo(latLonFromPoint, latLonToPoint);
+		RouteSearch.DriveRouteQuery query = new RouteSearch.DriveRouteQuery(fromAndTo, RouteSearch.DrivingDefault, passedByPoints, null, "");
+		if(recentStationId < favoriteStationId) {
+			routeSearch.calculateDriveRouteAsyn(query);
+		}
+		else {
+			durationTextView.setText("到站/已过站");
+		}
+
+		if(recentStationId== stationList.size()){
+			nextStation = String.valueOf(stationList.get(Integer.valueOf(coordinate.getStation()) - 1).getStationName());
+			nextStationTextView.setText("终点站:" + nextStation);
+		}
+		else {
+			nextStation = String.valueOf(stationList.get(Integer.valueOf(coordinate.getStation())).getStationName());
+			nextStationTextView.setText("下一站:" + nextStation);
+		}
+	}
+
+	@Override
     public void onStart() {
         super.onStart();
     }
@@ -308,4 +345,28 @@ public class HomeFragment extends Fragment implements
 //        locationText.setHint(locationMessage.getCity() + locationMessage.getDistrict() + locationMessage.getStreet());
         locationText.setText(locationMessage.getCity() + locationMessage.getDistrict() + locationMessage.getStreet());
     }
+
+	@Override
+	public void onBusRouteSearched(BusRouteResult busRouteResult, int i) {
+
+	}
+
+	@Override
+	public void onDriveRouteSearched(DriveRouteResult result, int rCode) {
+
+		if(rCode == 1000 && result != null && result.getPaths().size()> 0){
+			Long duration = result.getPaths().get(0).getDuration();
+			durationTextView.setText((int) (duration / 60) + "分");
+		}
+	}
+
+	@Override
+	public void onWalkRouteSearched(WalkRouteResult walkRouteResult, int i) {
+
+	}
+
+	@Override
+	public void onRideRouteSearched(RideRouteResult rideRouteResult, int i) {
+
+	}
 }

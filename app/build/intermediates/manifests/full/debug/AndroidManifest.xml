@@ -78,6 +78,13 @@
             android:name="com.liupeng.shuttleBusComing.activities.FavoriteActivity"
             android:screenOrientation="portrait" >
         </activity>
+
+        <service
+            android:name="com.liupeng.shuttleBusComing.service.RouteService"
+            android:enabled="true"
+            android:exported="true" >
+        </service>
+
         <activity
             android:name="com.antfortune.freeline.MiddlewareActivity"
             android:screenOrientation="portrait" />
