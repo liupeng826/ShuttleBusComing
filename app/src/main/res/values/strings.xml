@@ -10,7 +10,7 @@
     <string name="favorite">收藏</string>
     <string name="relocate">刷新</string>
     <string name="reminder">提醒</string>
-
+    <string name="calculating">获取中，请稍后…</string>
     <string name="action_settings">Settings</string>
 
     <string name="title_activity_fullscreen">FullscreenActivity</string>

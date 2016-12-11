@@ -12,7 +12,6 @@ import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.liupeng.shuttleBusComing.R;
-import com.liupeng.shuttleBusComing.activities.PublicActivity;
 import com.liupeng.shuttleBusComing.activities.SettingActivity;
 import com.liupeng.shuttleBusComing.views.WaveView;
 
@@ -68,11 +67,14 @@ public class MeFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.view_user:// 用户
+                //startActivity(new Intent(getActivity(), PublicActivity.class));
+                break;
             case R.id.txt_line:// 线路
-                startActivity(new Intent(getActivity(), PublicActivity.class));
+                //startActivity(new Intent(getActivity(), PublicActivity.class));
                 break;
             case R.id.txt_alarm:// 提醒
-                startActivity(new Intent(getActivity(), PublicActivity.class));
+                //startActivity(new Intent(getActivity(), PublicActivity.class));
                 break;
 
             case R.id.txt_setting:// 设置

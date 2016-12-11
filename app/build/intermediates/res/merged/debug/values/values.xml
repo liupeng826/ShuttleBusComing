@@ -736,6 +736,7 @@
     <string name="busline_message">线路详情</string>
     <string name="busstation_demo">公交站点查询</string>
     <string name="calculateLineDistance">两点间距离</string>
+    <string name="calculating">获取中，请稍后…</string>
     <string name="cancel">取消</string>
     <string name="cant_getaddress">无法获取该位置信息!</string>
     <string name="card_bag">卡包</string>

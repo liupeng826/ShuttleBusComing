@@ -33,7 +33,7 @@
                 android:layout_gravity="center_vertical"
                 android:layout_margin="5dp"
                 android:layout_weight="0.4"
-                android:src="@drawable/search"
+                android:src="@drawable/search_icon"
                 />
 
             <TextView

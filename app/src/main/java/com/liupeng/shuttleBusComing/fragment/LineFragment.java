@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -22,7 +21,6 @@ import com.liupeng.shuttleBusComing.activities.MapActivity;
 import com.liupeng.shuttleBusComing.adapter.LineAdapter;
 import com.liupeng.shuttleBusComing.utils.ApiService;
 import com.liupeng.shuttleBusComing.utils.BusLineGson;
-import com.liupeng.shuttleBusComing.utils.SPUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -37,7 +35,6 @@ import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
 
-import static com.liupeng.shuttleBusComing.utils.Initialize.LINES_KEY;
 import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
 
 public class LineFragment extends Fragment implements AdapterView.OnItemClickListener, View.OnClickListener {
@@ -88,7 +85,6 @@ public class LineFragment extends Fragment implements AdapterView.OnItemClickLis
                 startActivity(new Intent(getActivity(), MapActivity.class));
                 break;
             case R.id.lineSearchBtn:
-                Log.i("search:","");
                 break;
             default:
                 break;
@@ -168,9 +164,9 @@ public class LineFragment extends Fragment implements AdapterView.OnItemClickLis
                     for(Integer a: lineNumbers){
                         lineNames.add(a.toString());
                     }
-
-	                String[] strings = new String[lineNumbers.size()];
-                    SPUtil.setSharedPreference(LINES_KEY, lineNames.toArray(strings), getContext());
+//
+//	                String[] strings = new String[lineNumbers.size()];
+//                    SPUtil.setSharedPreference(LINES_KEY, lineNames.toArray(strings), getContext());
 
                     lineAdapter = new LineAdapter(mainActivity, (ArrayList<Integer>) lineNumbers);
                     listView.setAdapter(lineAdapter);

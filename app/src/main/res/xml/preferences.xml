@@ -4,18 +4,18 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:title="@string/title_activity_setting">
 
-        <SwitchPreference
-            android:defaultValue="true"
-            android:key="setting_location"
-            android:title="@string/location"/>
-        <ListPreference
-            android:defaultValue="-1"
-            android:entries="@array/pref_example_list_titles"
-            android:entryValues="@array/pref_example_list_values"
-            android:key="example_list"
-            android:negativeButtonText="@null"
-            android:positiveButtonText="@null"
-            android:title="@string/pref_title_add_friends_to_messages"/>
+        <!--<SwitchPreference-->
+            <!--android:defaultValue="true"-->
+            <!--android:key="setting_location"-->
+            <!--android:title="@string/location"/>-->
+        <!--<ListPreference-->
+            <!--android:defaultValue="-1"-->
+            <!--android:entries="@array/pref_example_list_titles"-->
+            <!--android:entryValues="@array/pref_example_list_values"-->
+            <!--android:key="example_list"-->
+            <!--android:negativeButtonText="@null"-->
+            <!--android:positiveButtonText="@null"-->
+            <!--android:title="@string/pref_title_add_friends_to_messages"/>-->
 
         <Preference
             android:layout="@layout/preference_item"

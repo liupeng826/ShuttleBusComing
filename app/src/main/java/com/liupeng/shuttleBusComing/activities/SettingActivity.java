@@ -106,7 +106,7 @@ public class SettingActivity extends AppCompatActivity {
             super.onCreate(savedInstanceState);
             addPreferencesFromResource(R.xml.preferences);
             setHasOptionsMenu(true);
-            bindPreferenceSummaryToValue(findPreference("example_list"));
+            //bindPreferenceSummaryToValue(findPreference("example_list"));
         }
     }
 
