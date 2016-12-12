@@ -60,110 +60,109 @@ import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
  */
 
 public class BusLineShowActivity extends AppCompatActivity implements
-        View.OnClickListener, BusLineView.OnBusStationClickListener, OnRouteSearchListener {
+		View.OnClickListener, BusLineView.OnBusStationClickListener, OnRouteSearchListener {
 
-    private TextView busName;
-    private TextView destination;
-    private TextView timeAndPrice;
-    private LinearLayout busLineMainPage;
-    private RelativeLayout hidePage;
-    private int busLineNo;
-    private String destinationText;
-    private String driverText;
+	private TextView busName;
+	private TextView destination;
+	private TextView timeAndPrice;
+	private LinearLayout busLineMainPage;
+	private RelativeLayout hidePage;
+	private int busLineNo;
+	private String destinationText;
+	private String driverText;
 	private Handler handler;
 	private Runnable runnable;
-    private LocationMessage locationMessage;
-    private List<Station> busStation;
+	private LocationMessage locationMessage;
+	private List<Station> busStation;
 	private List<BusLineItem> mBusLineItems;
 	private Coordinate coordinate;
 	private RouteSearch routeSearch;
 	private int position;
 	private boolean isFirst = true;
 
-    @BindView(R.id.imgView_favorite)
-    ImageView imgView_favorite;
-    @BindView(R.id.imgBtn_favorite)
-    ImageButton imgBtn_favorite;
-    @BindView(R.id.imgBtn_relocate)
-    ImageButton imgBtn_relocate;
-    @BindView(R.id.imgBtn_reminder)
-    ImageButton imgBtn_reminder;
-    @BindView(R.id.bus_station)
-    BusLineView mBusLineView;
+	@BindView(R.id.imgView_favorite)
+	ImageView imgView_favorite;
+	@BindView(R.id.imgBtn_favorite)
+	ImageButton imgBtn_favorite;
+	@BindView(R.id.imgBtn_relocate)
+	ImageButton imgBtn_relocate;
+	@BindView(R.id.imgBtn_reminder)
+	ImageButton imgBtn_reminder;
+	@BindView(R.id.bus_station)
+	BusLineView mBusLineView;
 	@BindView(R.id.duration)
 	TextView durationTextView;
 //    @BindView(R.id.back)
 //    Button back;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_bus_line_show);
-        ButterKnife.bind(this);
-        initData();
-        initView();
-    }
+	@Override
+	protected void onCreate(Bundle savedInstanceState) {
+		super.onCreate(savedInstanceState);
+		setContentView(R.layout.activity_bus_line_show);
+		ButterKnife.bind(this);
+		initData();
+		initView();
+	}
 
-    public void initData(){
-        busStation = new ArrayList<>();
-        busLineNo = getIntent().getIntExtra("LineNumber", 1);
-        getStationData();
-	    getLocationData();
-    }
+	public void initData() {
+		busStation = new ArrayList<>();
+		busLineNo = getIntent().getIntExtra("LineNumber", 1);
+		getStationData();
+		getLocationData();
+	}
 
-    public void initView(){
-        busName = $(R.id.bus_name);
-        destination = $(R.id.destination);
-        timeAndPrice = $(R.id.time_price);
+	public void initView() {
+		busName = $(R.id.bus_name);
+		destination = $(R.id.destination);
+		timeAndPrice = $(R.id.time_price);
 
-        busLineMainPage = $(R.id.busline_message);
-        hidePage = $(R.id.hide_bus);
+		busLineMainPage = $(R.id.busline_message);
+		hidePage = $(R.id.hide_bus);
 
 //        busLineView = $(R.id.bus_station);
-        Button back = $(R.id.back);
-        back.setOnClickListener(this);
-        imgBtn_favorite.setOnClickListener(this);
-        imgBtn_relocate.setOnClickListener(this);
-        imgBtn_reminder.setOnClickListener(this);
-	    mBusLineView.setOnBusStationClickListener(this);
-	    routeSearch = new RouteSearch(this);
-	    routeSearch.setRouteSearchListener(this);
-    }
+		Button back = $(R.id.back);
+		back.setOnClickListener(this);
+		imgBtn_favorite.setOnClickListener(this);
+		imgBtn_relocate.setOnClickListener(this);
+		imgBtn_reminder.setOnClickListener(this);
+		mBusLineView.setOnBusStationClickListener(this);
+		routeSearch = new RouteSearch(this);
+		routeSearch.setRouteSearchListener(this);
+	}
 
-    @SuppressWarnings("unchecked")
-    private <T extends View> T $(int resId){
-        return (T) super.findViewById(resId);
-    }
+	@SuppressWarnings("unchecked")
+	private <T extends View> T $(int resId) {
+		return (T) super.findViewById(resId);
+	}
 
-    @Override
-    public void onClick(View view) {
-        switch(view.getId()){
-            case R.id.back:
-                finish();
-                break;
-            case R.id.imgBtn_favorite:
-                //updateSharedPreference(FAVORITELINE_KEY + busLineNo, busStation.get(position).getStationName());
-	            updateSharedPreference(FAVORITELINE_KEY, busLineNo + "#" + busStation.get(position).getStationId() + "#" + busStation.get(position).getStationName());
-	            break;
-            case R.id.imgBtn_relocate:
-                break;
-            case R.id.imgBtn_reminder:
-                break;
-            default:
-                break;
-        }
-    }
+	@Override
+	public void onClick(View view) {
+		switch (view.getId()) {
+			case R.id.back:
+				finish();
+				break;
+			case R.id.imgBtn_favorite:
+				//updateSharedPreference(FAVORITELINE_KEY + busLineNo, busStation.get(position).getStationName());
+				updateSharedPreference(FAVORITELINE_KEY, busLineNo + "#" + busStation.get(position).getStationId() + "#" + busStation.get(position).getStationName());
+				break;
+			case R.id.imgBtn_relocate:
+				break;
+			case R.id.imgBtn_reminder:
+				break;
+			default:
+				break;
+		}
+	}
 
-    public void showMessage(ErrorStatus status){
-        if(!status.getIsError()){
-        }
-	    //mBusLineView.setOnClickEnable(true);
-    }
+	public void showMessage(ErrorStatus status) {
+		if (!status.getIsError()) {
+		}
+		//mBusLineView.setOnClickEnable(true);
+	}
 
-    public void hideMessage(){
-        //mBusLineView.setOnClickEnable(false);
-    }
-
+	public void hideMessage() {
+		//mBusLineView.setOnClickEnable(false);
+	}
 
 
 //    @Override
@@ -178,104 +177,102 @@ public class BusLineShowActivity extends AppCompatActivity implements
 //	    getLocationDataTask();
 //    }
 
-    public void getStationData() {
-        Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(WebApiURL)
-                //增加返回值为String的支持
-                .addConverterFactory(ScalarsConverterFactory.create())
-                //增加返回值为Gson的支持(以实体类返回)
-                .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                .build();
-        ApiService service = retrofit.create(ApiService.class);//这里采用的是Java的动态代理模式
+	public void getStationData() {
+		Retrofit retrofit = new Retrofit.Builder()
+				.baseUrl(WebApiURL)
+				//增加返回值为String的支持
+				.addConverterFactory(ScalarsConverterFactory.create())
+				//增加返回值为Gson的支持(以实体类返回)
+				.addConverterFactory(GsonConverterFactory.create())
+				.addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+				.build();
+		ApiService service = retrofit.create(ApiService.class);//这里采用的是Java的动态代理模式
 
-        service.getStations(busLineNo)
-                .subscribeOn(Schedulers.newThread())
-                .map(new Func1<StationGson, List<Station>>() {
-                    @Override
-                    public List<Station> call(StationGson stationGson) { //
-                        List<Station> stationList = new ArrayList<Station>();
-	                    mBusLineItems = new ArrayList<BusLineItem>();
-                        for (Station dataBean : stationGson.getData()) {
-	                        BusLineItem item = new BusLineItem();
-	                        item.name = dataBean.getStationName();
-	                        item.stationId = dataBean.getStationId();
-	                        mBusLineItems.add(item);
-	                        stationList.add(dataBean);
-                        }
-                        return stationList; // 返回类型
-                    }
-                })
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<List<Station>>() {
-                    @Override
-                    public void onNext(List<Station> stationList) {
-                        // show list view
-                        displayListView(stationList);
-                    }
+		service.getStations(busLineNo)
+				.subscribeOn(Schedulers.newThread())
+				.map(new Func1<StationGson, List<Station>>() {
+					@Override
+					public List<Station> call(StationGson stationGson) { //
+						List<Station> stationList = new ArrayList<Station>();
+						mBusLineItems = new ArrayList<BusLineItem>();
+						for (Station dataBean : stationGson.getData()) {
+							BusLineItem item = new BusLineItem();
+							item.name = dataBean.getStationName();
+							item.stationId = dataBean.getStationId();
+							mBusLineItems.add(item);
+							stationList.add(dataBean);
+						}
+						return stationList; // 返回类型
+					}
+				})
+				.observeOn(AndroidSchedulers.mainThread())
+				.subscribe(new Subscriber<List<Station>>() {
+					@Override
+					public void onNext(List<Station> stationList) {
+						// show list view
+						displayListView(stationList);
+					}
 
-                    @Override
-                    public void onCompleted() {
-                        Log.i("onCompleted", "onCompleted");
-                    }
+					@Override
+					public void onCompleted() {
+						Log.i("onCompleted", "onCompleted");
+					}
 
-                    @Override
-                    public void onError(Throwable e) {
-                    }
-                });
+					@Override
+					public void onError(Throwable e) {
+					}
+				});
 
-    }
+	}
 
-    public void displayListView(List<Station> stationList){
+	public void displayListView(List<Station> stationList) {
 
-        String timeText;
-        if (stationList.size() > 0) {
+		String timeText;
+		if (stationList.size() > 0) {
 
-            busStation = stationList;
-            String startTime = busStation.get(0).getReachTime();
-            String endTime = "17:10:00";
-            timeText = "首车:" +
-                    startTime +
-                    " " +
-                    "末车:" +
-                    endTime;
+			busStation = stationList;
+			String startTime = busStation.get(0).getReachTime();
+			String endTime = "17:10:00";
+			timeText = "首车:" +
+					startTime +
+					" " +
+					"末车:" +
+					endTime;
 
-            destinationText = stationList.get(0).getStationName()
-                    + "→"
-                    + stationList.get(stationList.size() - 1).getStationName();
-            driverText = " " + busStation.get(0).getDriverName() + " " + busStation.get(0).getDriverTel();
-        } else {
-            timeText = "无该公交信息!!";
-        }
+			destinationText = stationList.get(0).getStationName()
+					+ "→"
+					+ stationList.get(stationList.size() - 1).getStationName();
+			driverText = " " + busStation.get(0).getDriverName() + " " + busStation.get(0).getDriverTel();
+		} else {
+			timeText = "无该公交信息!!";
+		}
 
-        mBusLineView.setBusLineData(mBusLineItems);
-        busName.setText(busLineNo + "号线" + driverText);
-        destination.setText(destinationText);
-        timeAndPrice.setText(timeText);
-    }
+		mBusLineView.setBusLineData(mBusLineItems);
+		busName.setText(busLineNo + "号线" + driverText);
+		destination.setText(destinationText);
+		timeAndPrice.setText(timeText);
+	}
 
-    public void updateSharedPreference(String key, String value) {
-        if (SPUtil.getSharedPreference(key, this).equals(value)) {
-            imgView_favorite.setImageResource(R.drawable.ic_favorite);
-	        SPUtil.removeSharedPreference(key, this);
-        } else {
-            imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
-	        SPUtil.setSharedPreference(key, value, this);
-        }
-    }
+	public void updateSharedPreference(String key, String value) {
+		if (SPUtil.getSharedPreference(key, this).equals(value)) {
+			imgView_favorite.setImageResource(R.drawable.ic_favorite);
+			SPUtil.removeSharedPreference(key, this);
+		} else {
+			imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
+			SPUtil.setSharedPreference(key, value, this);
+		}
+	}
 
-    public void updateFavorite(String key, String value) {
+	public void updateFavorite(String key, String value) {
 
-        String keyValue = SPUtil.getSharedPreference(key, this);
+		String keyValue = SPUtil.getSharedPreference(key, this);
 
-        if(keyValue.equals(value))
-        {
-            imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
-        }
-        else{
-            imgView_favorite.setImageResource(R.drawable.ic_favorite);
-        }
-    }
+		if (keyValue.equals(value)) {
+			imgView_favorite.setImageResource(R.drawable.ic_favoriteon);
+		} else {
+			imgView_favorite.setImageResource(R.drawable.ic_favorite);
+		}
+	}
 
 	private void getLocationDataTask() {
 
@@ -310,9 +307,10 @@ public class BusLineShowActivity extends AppCompatActivity implements
 				//处理请求成功
 				if (response.body().getData() != null) {
 					coordinate = response.body().getData();
-					mBusLineItems.get(7).busPosition = 0;
-					coordinate.setStation("7");
-					if (!isFirst) {DisplayStationInformation(coordinate);}
+					mBusLineItems.get(coordinate.getStationId()).busPosition = 0;
+					if (!isFirst) {
+						DisplayStationInformation(coordinate);
+					}
 					mBusLineView.setBusLineData(mBusLineItems);
 					isFirst = false;
 				}
@@ -327,20 +325,19 @@ public class BusLineShowActivity extends AppCompatActivity implements
 	}
 
 	private void DisplayStationInformation(Coordinate coordinate) {
-		Integer recentStationId = Integer.valueOf(coordinate.getStation());
+		Integer recentStationId = coordinate.getStationId();
 		LatLonPoint latLonFromPoint = new LatLonPoint(Double.valueOf(coordinate.getLat()), Double.valueOf(coordinate.getLng()));
 		LatLonPoint latLonToPoint = new LatLonPoint(Double.valueOf(busStation.get(position).getLat()), Double.valueOf(busStation.get(position).getLng()));
 		List<LatLonPoint> passedByPoints = new ArrayList<>();
-		for (int i = recentStationId + 1; i< position; i++) {
+		for (int i = recentStationId + 1; i < position; i++) {
 			passedByPoints.add(new LatLonPoint(Double.valueOf(busStation.get(i).getLat()), Double.valueOf(busStation.get(i).getLng())));
 		}
 
 		RouteSearch.FromAndTo fromAndTo = new RouteSearch.FromAndTo(latLonFromPoint, latLonToPoint);
 		RouteSearch.DriveRouteQuery query = new RouteSearch.DriveRouteQuery(fromAndTo, RouteSearch.DrivingDefault, passedByPoints, null, "");
-		if(recentStationId < position) {
+		if (recentStationId < position) {
 			routeSearch.calculateDriveRouteAsyn(query);
-		}
-		else {
+		} else {
 			durationTextView.setText("到站/已过站");
 		}
 	}
@@ -352,8 +349,8 @@ public class BusLineShowActivity extends AppCompatActivity implements
 
 	@Override
 	public void onDriveRouteSearched(DriveRouteResult result, int rCode) {
-		if(rCode == 1000 && result != null && result.getPaths() != null){
-			if(result.getPaths().size()> 0) {
+		if (rCode == 1000 && result != null && result.getPaths() != null) {
+			if (result.getPaths().size() > 0) {
 				Long duration = result.getPaths().get(0).getDuration();
 				durationTextView.setText((int) (duration / 60) + "分");
 			}
@@ -373,7 +370,7 @@ public class BusLineShowActivity extends AppCompatActivity implements
 	@Override
 	protected void onDestroy() {
 		super.onDestroy();
-		if(handler != null && runnable != null) {
+		if (handler != null && runnable != null) {
 			handler.removeCallbacks(runnable);
 		}
 	}
@@ -385,11 +382,11 @@ public class BusLineShowActivity extends AppCompatActivity implements
 		}
 
 		this.position = item.stationId;
-	    durationTextView.setText(R.string.calculating);
-        // 标记收藏按钮
-        updateFavorite(FAVORITELINE_KEY, busLineNo + "#" + busStation.get(position).getStationId() + "#" + busStation.get(position).getStationName());
+		durationTextView.setText(R.string.calculating);
+		// 标记收藏按钮
+		updateFavorite(FAVORITELINE_KEY, busLineNo + "#" + busStation.get(position).getStationId() + "#" + busStation.get(position).getStationName());
 
-	    getLocationDataTask();
+		getLocationDataTask();
 	}
 //    public void updateSharedPreference(String key, String value) {
 //

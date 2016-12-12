@@ -21,7 +21,7 @@ public class Coordinate {
     private String lng;
     private String createdTime;
     private String updateTime;
-    private String station;
+    private int stationId;
 
     public long getId() {
         return id;
@@ -77,11 +77,11 @@ public class Coordinate {
         this.updateTime = updateTime;
     }
 
-    public String getStation() {
-        return station;
+    public int getStationId() {
+        return stationId;
     }
 
-    public void setStation(String station) {
-        this.station = station;
+    public void setStationId(int stationId) {
+        this.stationId = stationId;
     }
 }
