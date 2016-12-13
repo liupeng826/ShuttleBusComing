@@ -23,8 +23,11 @@ public interface ApiService {
 
     //http://180.76.169.196:8000/api/coordinate/station?line=6
     @GET("api/coordinate/station")
-    Observable<StationGson> getStations(@Query("line") long roleId);
+    Observable<StationGson> getStationLs(@Query("line") long roleId);
 
+    //http://180.76.169.196:8000/api/coordinate/station?line=6
+    @GET("api/coordinate/station")
+    Call<StationGson> getStations(@Query("line") long roleId);
 
     @POST("api/coordinate")
     Call<Coordinate> updateCoordinate(@Body Coordinate coordinate);

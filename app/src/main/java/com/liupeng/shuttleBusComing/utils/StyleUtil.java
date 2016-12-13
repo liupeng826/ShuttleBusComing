@@ -6,7 +6,7 @@ import android.widget.TextView;
 import com.liupeng.shuttleBusComing.R;
 
 /**
- * Created by chunr on 2016/4/30.
+ * Created by liupeng on 2016/11/30.
  */
 public class StyleUtil {
 

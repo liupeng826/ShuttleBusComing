@@ -11,7 +11,7 @@ import com.liupeng.shuttleBusComing.R;
 import java.io.InputStream;
 
 /**
- * Created by chunr on 2016/4/29.
+ * Created by liupeng on 2016/11/29.
  */
 public class IcoUtil {
 
@@ -19,10 +19,6 @@ public class IcoUtil {
     private static Bitmap mMineC;
     private static Bitmap mBus;
     private static Bitmap mBusC;
-    private static Bitmap mRoute;
-    private static Bitmap mRouteC;
-    private static Bitmap mIndex;
-    private static Bitmap mIndexC;
 
 
     private static Context ctx;
@@ -35,10 +31,6 @@ public class IcoUtil {
 
         mBus = scaleBottomImage(BitmapFactory.decodeResource(context.getResources(), R.drawable.bus));
         mBusC = scaleBottomImage(BitmapFactory.decodeResource(context.getResources(), R.drawable.busc));
-        mRoute = scaleBottomImage(BitmapFactory.decodeResource(context.getResources(),R.drawable.route));
-        mRouteC = scaleBottomImage(BitmapFactory.decodeResource(context.getResources(),R.drawable.routec));
-        mIndex = scaleBottomImage(BitmapFactory.decodeResource(context.getResources(),R.drawable.index));
-        mIndexC = scaleBottomImage(BitmapFactory.decodeResource(context.getResources(),R.drawable.indexc));
         mMine = scaleBottomImage(BitmapFactory.decodeResource(context.getResources(),R.drawable.mine));
         mMineC = scaleBottomImage(BitmapFactory.decodeResource(context.getResources(),R.drawable.minec));
     }
@@ -79,24 +71,8 @@ public class IcoUtil {
         return mBus;
     }
 
-    public static Bitmap getmRoute() {
-        return mRoute;
-    }
-
-    public static Bitmap getmIndex() {
-        return mIndex;
-    }
-
     public static Bitmap getmMine() {
         return mMine;
-    }
-
-    public static Bitmap getmIndexC() {
-        return mIndexC;
-    }
-
-    public static Bitmap getmRouteC() {
-        return mRouteC;
     }
 
     public static Bitmap getmBusC() {

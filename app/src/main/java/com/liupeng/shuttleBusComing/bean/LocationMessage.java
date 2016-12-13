@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat;
 
 
 /**
- * Created by chunr on 2016/4/30.
+ * Created by liupeng on 2016/11/30.
  */
 public class LocationMessage implements Parcelable{
     private int locationType;//获取当前定位结果来源，如网络定位结果，详见定位类型表

@@ -1,7 +1,7 @@
 package com.liupeng.shuttleBusComing.Interfaces;
 
 /**
- * Created by chunr on 2016/5/31.
+ * Created by liupeng on 2016/5/31.
  */
 public interface FullUserAndPass {
     public void OnFullUser(String user);

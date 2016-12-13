@@ -45,10 +45,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 import retrofit2.converter.scalars.ScalarsConverterFactory;
-import rx.Subscriber;
-import rx.android.schedulers.AndroidSchedulers;
-import rx.functions.Func1;
-import rx.schedulers.Schedulers;
 
 import static com.liupeng.shuttleBusComing.utils.Initialize.FAVORITELINE_KEY;
 import static com.liupeng.shuttleBusComing.utils.Initialize.FETCH_TIME_INTERVAL;
@@ -100,8 +96,8 @@ public class BusLineShowActivity extends AppCompatActivity implements
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_bus_line_show);
 		ButterKnife.bind(this);
-		initData();
 		initView();
+		initData();
 	}
 
 	public void initData() {
@@ -188,41 +184,68 @@ public class BusLineShowActivity extends AppCompatActivity implements
 				.build();
 		ApiService service = retrofit.create(ApiService.class);//这里采用的是Java的动态代理模式
 
-		service.getStations(busLineNo)
-				.subscribeOn(Schedulers.newThread())
-				.map(new Func1<StationGson, List<Station>>() {
-					@Override
-					public List<Station> call(StationGson stationGson) { //
-						List<Station> stationList = new ArrayList<Station>();
-						mBusLineItems = new ArrayList<BusLineItem>();
-						for (Station dataBean : stationGson.getData()) {
-							BusLineItem item = new BusLineItem();
-							item.name = dataBean.getStationName();
-							item.stationId = dataBean.getStationId();
-							mBusLineItems.add(item);
-							stationList.add(dataBean);
-						}
-						return stationList; // 返回类型
-					}
-				})
-				.observeOn(AndroidSchedulers.mainThread())
-				.subscribe(new Subscriber<List<Station>>() {
-					@Override
-					public void onNext(List<Station> stationList) {
-						// show list view
-						displayListView(stationList);
-					}
+//		service.getStations(busLineNo)
+//				.subscribeOn(Schedulers.newThread())
+//				.map(new Func1<StationGson, List<Station>>() {
+//					@Override
+//					public List<Station> call(StationGson stationGson) { //
+//						List<Station> stationList = new ArrayList<Station>();
+//						mBusLineItems = new ArrayList<BusLineItem>();
+//						for (Station dataBean : stationGson.getData()) {
+//							BusLineItem item = new BusLineItem();
+//							item.name = dataBean.getStationName();
+//							item.stationId = dataBean.getStationId();
+//							mBusLineItems.add(item);
+//							stationList.add(dataBean);
+//						}
+//						return stationList; // 返回类型
+//					}
+//				})
+//				.observeOn(AndroidSchedulers.mainThread())
+//				.subscribe(new Subscriber<List<Station>>() {
+//					@Override
+//					public void onNext(List<Station> stationList) {
+//						// show list view
+//						displayListView(stationList);
+//					}
+//
+//					@Override
+//					public void onCompleted() {
+//						Log.i("onCompleted", "onCompleted");
+//					}
+//
+//					@Override
+//					public void onError(Throwable e) {
+//					}
+//				});
+//
+//	}
 
-					@Override
-					public void onCompleted() {
-						Log.i("onCompleted", "onCompleted");
+		Call<StationGson> call = service.getStations(busLineNo);
+		call.enqueue(new Callback<StationGson>() {
+			@Override
+			public void onResponse(Call<StationGson> call, Response<StationGson> response) {
+				//处理请求成功
+				if (response.body().getData() != null) {
+					List<Station> stationList = new ArrayList<Station>();
+					mBusLineItems = new ArrayList<BusLineItem>();
+					for (Station dataBean : response.body().getData()) {
+						BusLineItem item = new BusLineItem();
+						item.name = dataBean.getStationName();
+						item.stationId = dataBean.getStationId();
+						mBusLineItems.add(item);
+						stationList.add(dataBean);
 					}
+					// show list view
+					displayListView(stationList);
+				}
+			}
 
-					@Override
-					public void onError(Throwable e) {
-					}
-				});
-
+			@Override
+			public void onFailure(Call<StationGson> call, Throwable t) {
+				//处理请求失败
+			}
+		});
 	}
 
 	public void displayListView(List<Station> stationList) {
@@ -248,6 +271,8 @@ public class BusLineShowActivity extends AppCompatActivity implements
 		}
 
 		mBusLineView.setBusLineData(mBusLineItems);
+		mBusLineView.invalidate();
+
 		busName.setText(busLineNo + "号线" + driverText);
 		destination.setText(destinationText);
 		timeAndPrice.setText(timeText);
@@ -307,12 +332,14 @@ public class BusLineShowActivity extends AppCompatActivity implements
 				//处理请求成功
 				if (response.body().getData() != null) {
 					coordinate = response.body().getData();
-					mBusLineItems.get(coordinate.getStationId()).busPosition = 0;
-					if (!isFirst) {
-						DisplayStationInformation(coordinate);
+					if(mBusLineItems != null && mBusLineItems.size() > coordinate.getStationId()) {
+						mBusLineItems.get(coordinate.getStationId()).busPosition = 0;
+						if (!isFirst) {
+							DisplayStationInformation(coordinate);
+						}
+						mBusLineView.setBusLineData(mBusLineItems);
+						isFirst = false;
 					}
-					mBusLineView.setBusLineData(mBusLineItems);
-					isFirst = false;
 				}
 			}
 

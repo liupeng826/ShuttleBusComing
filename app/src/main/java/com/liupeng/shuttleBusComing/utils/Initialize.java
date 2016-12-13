@@ -13,7 +13,7 @@ import com.liupeng.shuttleBusComing.bean.LocationMessage;
 import com.amap.api.services.core.LatLonPoint;
 
 /**
- * Created by chunr on 2016/4/29.
+ * Created by liupeng on 2016/11/29.
  *
  * 初始化静态类,加载主布局前调用init()初始化
  * 1.获取屏幕宽高

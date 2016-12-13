@@ -272,7 +272,7 @@ public class HomeFragment extends Fragment implements
 				.build();
 		ApiService service = retrofit.create(ApiService.class);//这里采用的是Java的动态代理模式
 
-		service.getStations(busLineNo)
+		service.getStationLs(busLineNo)
 				.subscribeOn(Schedulers.newThread())
 				.map(new Func1<StationGson, List<Station>>() {
 					@Override

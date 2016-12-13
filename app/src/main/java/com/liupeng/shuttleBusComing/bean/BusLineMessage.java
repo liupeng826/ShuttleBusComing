@@ -7,7 +7,7 @@ import java.util.Date;
 import java.util.List;
 
 /**
- * Created by chunr on 2016/5/15.
+ * Created by liupeng on 2016/5/15.
  */
 public class BusLineMessage {
     private String BusLineName;

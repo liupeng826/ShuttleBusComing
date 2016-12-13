@@ -12,7 +12,7 @@ import com.amap.api.services.poisearch.PoiSearch;
 import java.util.List;
 
 /**
- * Created by chunr on 2016/5/25.
+ * Created by liupeng on 2016/5/25.
  */
 public class PoiAddressUtil implements PoiSearch.OnPoiSearchListener {
 

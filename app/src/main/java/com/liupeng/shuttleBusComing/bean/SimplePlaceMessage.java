@@ -6,7 +6,7 @@ import android.os.Parcelable;
 import com.amap.api.services.core.LatLonPoint;
 
 /**
- * Created by chunr on 2016/5/25.
+ * Created by liupeng on 2016/5/25.
  */
 public class SimplePlaceMessage implements Parcelable{
     private LatLonPoint mLatLon;

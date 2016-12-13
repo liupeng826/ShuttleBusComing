@@ -121,6 +121,7 @@ public class BusLineView extends View {
 
 		mBusLines.addAll(list);
 		mHeight = computeHeight();
+		invalidate();
 	}
 
 	private int computeHeight() {

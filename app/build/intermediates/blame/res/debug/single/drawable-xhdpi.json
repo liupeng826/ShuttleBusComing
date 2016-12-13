@@ -1,13 +1,5 @@
 [
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xhdpi/drawer_shadow.9.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xhdpi/drawer_shadow.9.png"
-    },
-    {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_drawer.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xhdpi/ic_drawer.png"
-    },
-    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xhdpi/ic_launcher.png",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xhdpi/ic_launcher.png"
     },
@@ -16,23 +8,11 @@
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xhdpi/map_icon_fast.png"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xhdpi/map_icon_bus.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xhdpi/map_icon_bus.png"
-    },
-    {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xhdpi/map_icon_taxi.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xhdpi/map_icon_taxi.png"
-    },
-    {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xhdpi/map_icon_driver_car.png",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xhdpi/map_icon_driver_car.png"
     },
     {
         "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xhdpi/map_icon_luxury.png",
         "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xhdpi/map_icon_luxury.png"
-    },
-    {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xhdpi/map_icon_tailwind.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xhdpi/map_icon_tailwind.png"
     }
 ]

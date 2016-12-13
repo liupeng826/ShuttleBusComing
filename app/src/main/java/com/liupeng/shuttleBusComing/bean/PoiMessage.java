@@ -10,7 +10,7 @@ import com.amap.api.services.poisearch.SubPoiItem;
 import java.util.List;
 
 /**
- * Created by chunr on 2016/5/13.
+ * Created by liupeng on 2016/5/13.
  */
 public class PoiMessage implements Parcelable{
 

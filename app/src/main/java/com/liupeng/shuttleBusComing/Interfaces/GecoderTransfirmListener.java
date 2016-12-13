@@ -4,7 +4,7 @@ import com.liupeng.shuttleBusComing.bean.ErrorStatus;
 import com.amap.api.services.core.LatLonPoint;
 
 /**
- * Created by chunr on 2016/5/8.
+ * Created by liupeng on 2016/5/8.
  */
 public interface GecoderTransfirmListener {
     public void onGetLat(LatLonPoint latLonPoint, ErrorStatus status);

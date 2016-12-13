@@ -15,7 +15,7 @@ import com.liupeng.shuttleBusComing.utils.Initialize;
 import java.util.ArrayList;
 
 /**
- * Created by chunr on 2016/5/27.
+ * Created by liupeng on 2016/5/27.
  */
 public class StationAdapter extends BaseAdapter {
     private LayoutInflater mInflater;//得到一个LayoutInfalter对象用来导入布局
