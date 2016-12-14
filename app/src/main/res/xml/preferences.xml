@@ -22,7 +22,7 @@
             android:title="检查更新">
             <intent
                 android:action="android.intent.action.VIEW"
-                android:data="http://fir.im/7hkc"/>
+                android:data="http://fir.im/gmp6"/>
         </Preference>
 
         <Preference
