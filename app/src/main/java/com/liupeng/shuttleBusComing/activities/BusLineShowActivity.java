@@ -63,6 +63,7 @@ public class BusLineShowActivity extends AppCompatActivity implements
 	private TextView timeAndPrice;
 	private LinearLayout busLineMainPage;
 	private RelativeLayout hidePage;
+	private BusLineView mBusLineView;
 	private int busLineNo;
 	private String destinationText;
 	private String driverText;
@@ -84,8 +85,6 @@ public class BusLineShowActivity extends AppCompatActivity implements
 	ImageButton imgBtn_relocate;
 	@BindView(R.id.imgBtn_reminder)
 	ImageButton imgBtn_reminder;
-	@BindView(R.id.bus_station)
-	BusLineView mBusLineView;
 	@BindView(R.id.duration)
 	TextView durationTextView;
 //    @BindView(R.id.back)
@@ -111,11 +110,9 @@ public class BusLineShowActivity extends AppCompatActivity implements
 		busName = $(R.id.bus_name);
 		destination = $(R.id.destination);
 		timeAndPrice = $(R.id.time_price);
-
 		busLineMainPage = $(R.id.busline_message);
 		hidePage = $(R.id.hide_bus);
-
-//        busLineView = $(R.id.bus_station);
+		mBusLineView = $(R.id.bus_station);
 		Button back = $(R.id.back);
 		back.setOnClickListener(this);
 		imgBtn_favorite.setOnClickListener(this);
@@ -184,7 +181,7 @@ public class BusLineShowActivity extends AppCompatActivity implements
 				.build();
 		ApiService service = retrofit.create(ApiService.class);//这里采用的是Java的动态代理模式
 
-//		service.getStations(busLineNo)
+//		service.getLineDetail(busLineNo)
 //				.subscribeOn(Schedulers.newThread())
 //				.map(new Func1<StationGson, List<Station>>() {
 //					@Override
@@ -271,7 +268,7 @@ public class BusLineShowActivity extends AppCompatActivity implements
 		}
 
 		mBusLineView.setBusLineData(mBusLineItems);
-		mBusLineView.invalidate();
+		mBusLineView.requestLayout();
 
 		busName.setText(busLineNo + "号线" + driverText);
 		destination.setText(destinationText);
@@ -338,6 +335,7 @@ public class BusLineShowActivity extends AppCompatActivity implements
 							DisplayStationInformation(coordinate);
 						}
 						mBusLineView.setBusLineData(mBusLineItems);
+						mBusLineView.requestLayout();
 						isFirst = false;
 					}
 				}

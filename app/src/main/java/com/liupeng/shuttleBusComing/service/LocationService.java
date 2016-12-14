@@ -48,7 +48,6 @@ public class LocationService extends Service implements AMapLocationListener {
     public void onCreate() {
         super.onCreate();
         getLocationInit();
-
     }
 
     private void getLocationInit(){

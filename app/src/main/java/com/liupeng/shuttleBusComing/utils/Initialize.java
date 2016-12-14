@@ -1,16 +1,13 @@
 package com.liupeng.shuttleBusComing.utils;
 
-import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.content.Intent;
 import android.content.IntentFilter;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.view.WindowManager;
 
-import com.liupeng.shuttleBusComing.bean.ErrorStatus;
-import com.liupeng.shuttleBusComing.bean.LocationMessage;
 import com.amap.api.services.core.LatLonPoint;
+import com.liupeng.shuttleBusComing.bean.LocationMessage;
 
 /**
  * Created by liupeng on 2016/11/29.
@@ -135,7 +132,7 @@ public class Initialize {
         NO_RESULT_CODE = 66666;
 
 
-        BASE_LOCATION_RECEIVER = "com.BaseLocationReceiver";
+        BASE_LOCATION_RECEIVER = "com.liupeng.shuttleBusComing.BaseLocationReceiver";
 
 
         RECEIVED = false;
@@ -146,22 +143,22 @@ public class Initialize {
         StyleUtil.init(context);
         IntentFilter filter = new IntentFilter();
         filter.addAction("com.liupeng.shuttleBusComing.locationReceiver");
-        context.registerReceiver(localReceiver,filter);
+//        context.registerReceiver(localReceiver,filter);
     }
 
-    private static ErrorStatus mErrorStatus;
-    private static BroadcastReceiver localReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            mErrorStatus = intent.getParcelableExtra("ErrorStatus");
-            if(!mErrorStatus.getIsError()){
-                if(null != intent.getParcelableExtra("Location")){
-                    LOCAL_MESSAGE = intent.getParcelableExtra("Location");
-                    context.unregisterReceiver(localReceiver);
-                }else{
-                    //错误处理
-                }
-            }
-        }
-    };
+//    private static ErrorStatus mErrorStatus;
+//    public static BroadcastReceiver localReceiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            mErrorStatus = intent.getParcelableExtra("ErrorStatus");
+//            if(!mErrorStatus.getIsError()){
+//                if(null != intent.getParcelableExtra("Location")){
+//                    LOCAL_MESSAGE = intent.getParcelableExtra("Location");
+//                    context.unregisterReceiver(localReceiver);
+//                }else{
+//                    //错误处理
+//                }
+//            }
+//        }
+//    };
 }

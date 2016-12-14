@@ -11,14 +11,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.Window;
 
-import com.amap.api.services.busline.BusLineItem;
 import com.ashokvarma.bottomnavigation.BottomNavigationBar;
 import com.ashokvarma.bottomnavigation.BottomNavigationItem;
-import com.google.gson.Gson;
-import com.google.gson.reflect.TypeToken;
 import com.liupeng.shuttleBusComing.R;
 import com.liupeng.shuttleBusComing.bean.ErrorStatus;
 import com.liupeng.shuttleBusComing.bean.LocationMessage;
@@ -31,7 +27,6 @@ import com.liupeng.shuttleBusComing.utils.Initialize;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
-import java.util.Map;
 
 import static com.liupeng.shuttleBusComing.utils.Initialize.FILENAME;
 import static com.liupeng.shuttleBusComing.utils.Initialize.UUID_KEY;
@@ -69,7 +64,7 @@ public class MainActivity extends CheckPermissionsActivity
 //        startLocation();
     }
 
-    /**
+	/**
      * 设置默认的
      */
     private void setDefaultFragment() {
@@ -132,9 +127,9 @@ public class MainActivity extends CheckPermissionsActivity
         filter.addAction("com.liupeng.shuttleBusComing.locationReceiver");
         registerReceiver(mainReceiver, filter);
 
-        IntentFilter busLineFilter = new IntentFilter();
-        busLineFilter.addAction("com.liupeng.shuttleBusComing.BusLineBroadcast");
-        registerReceiver(busLineReceiver, busLineFilter);
+//        IntentFilter busLineFilter = new IntentFilter();
+//        busLineFilter.addAction("com.liupeng.shuttleBusComing.BusLineBroadcast");
+//        registerReceiver(busLineReceiver, busLineFilter);
 
         //先注册触发器再开启服务发送广播
         startLocationServiceIntent = new Intent(this,
@@ -148,9 +143,9 @@ public class MainActivity extends CheckPermissionsActivity
         if (null != mainReceiver) {
             unregisterReceiver(mainReceiver);
         }
-        if (null != busLineReceiver) {
-            unregisterReceiver(busLineReceiver);
-        }
+//        if (null != busLineReceiver) {
+//            unregisterReceiver(busLineReceiver);
+//        }
     }
 
     /**
@@ -230,33 +225,34 @@ public class MainActivity extends CheckPermissionsActivity
         }
     };
 
-    private ArrayList<Map<String, BusLineItem>> busLineItems;
-    private ErrorStatus busLineErrorStatus;
-
-    private BroadcastReceiver busLineReceiver = new BroadcastReceiver() {
-        @Override
-        public void onReceive(Context context, Intent intent) {
-            busLineErrorStatus = intent.getParcelableExtra("ErrorStatus");
-            if (busLineErrorStatus.getIsError()) {
-                Log.i("ERRORR", "busline服务获取错误");
-            } else {
-                String jsonData = intent.getStringExtra("BusLine");
-                busLineItems = new Gson()
-                        .fromJson(jsonData, new TypeToken<ArrayList<Map<String, BusLineItem>>>() {
-                        }.getType());
-
-                if (null != mGetBusLineMessage) {
-                    mGetBusLineMessage.OnReceiveBusLineMessage(busLineItems, busLineErrorStatus);
-                    Initialize.RECEIVED = true;
-                }
-            }
-        }
-    };
+//    private ArrayList<Map<String, BusLineItem>> busLineItems;
+//    private ErrorStatus busLineErrorStatus;
+//
+//    private BroadcastReceiver busLineReceiver = new BroadcastReceiver() {
+//        @Override
+//        public void onReceive(Context context, Intent intent) {
+//            busLineErrorStatus = intent.getParcelableExtra("ErrorStatus");
+//            if (busLineErrorStatus.getIsError()) {
+//                Log.i("ERRORR", "busline服务获取错误");
+//            } else {
+//                String jsonData = intent.getStringExtra("BusLine");
+//                busLineItems = new Gson()
+//                        .fromJson(jsonData, new TypeToken<ArrayList<Map<String, BusLineItem>>>() {
+//                        }.getType());
+//
+//                if (null != mGetBusLineMessage) {
+//                    mGetBusLineMessage.OnReceiveBusLineMessage(busLineItems, busLineErrorStatus);
+//                    Initialize.RECEIVED = true;
+//                }
+//            }
+//        }
+//    };
 
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
+
 
 //        if (null != locationClient) {
 //            /**
@@ -362,10 +358,10 @@ public class MainActivity extends CheckPermissionsActivity
         mGetLocationMessage = onGetLocationMessage;
     }
 
-    private OnGetBusLineMessage mGetBusLineMessage;
-    public void setOnGetBusLineMessage(OnGetBusLineMessage onGetBusLineMessage) {
-        mGetBusLineMessage = onGetBusLineMessage;
-    }
+//    private OnGetBusLineMessage mGetBusLineMessage;
+//    public void setOnGetBusLineMessage(OnGetBusLineMessage onGetBusLineMessage) {
+//        mGetBusLineMessage = onGetBusLineMessage;
+//    }
 
     //接口便于其他fragment即使获取locationMessage
     public interface OnGetLocationMessage {
@@ -373,7 +369,7 @@ public class MainActivity extends CheckPermissionsActivity
     }
 
     //busline获取接口
-    public interface OnGetBusLineMessage {
-        public void OnReceiveBusLineMessage(ArrayList<Map<String, BusLineItem>> busLineItems, ErrorStatus errorStatus);
-    }
+//    public interface OnGetBusLineMessage {
+//        public void OnReceiveBusLineMessage(ArrayList<Map<String, BusLineItem>> busLineItems, ErrorStatus errorStatus);
+//    }
 }

@@ -1,6 +1,7 @@
 package com.liupeng.shuttleBusComing.views;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
@@ -35,7 +36,13 @@ public class BusLineView extends View {
 	private Drawable mBus = getResources().getDrawable(R.drawable.ic_bus), mBusSmall, mCurrentPosition, mCurrentPositionLocation, mRailway;
 	private int mMargin1X, mMargin2P;
 	private float mStrokeWidth;
-	private int mColorPass, mColorUnreach, mSelectedColor, mColorBlock, mColorBusy, mColorNormal;
+	private int mColorPass;
+	private int mColorUnreach;
+	private int mSelectedColor;
+	private int mColorBlock;
+	private int mColorBusy;
+	private int mColorNormal;
+	private Bitmap mBackGround;
 
 	private Rect mTxtRect;
 	private RectF mBusRect, mLocationRectF;
@@ -78,6 +85,8 @@ public class BusLineView extends View {
 		mCurrentPosition = getResources().getDrawable(R.drawable.ic_current_bus_station);
 		mCurrentPositionLocation = getResources().getDrawable(R.drawable.ic_current_bus_station_location);
 		mRailway = getResources().getDrawable(R.drawable.ic_railway);
+		//获取背景图片
+		//mBackGround  = ((BitmapDrawable) this.getResources().getDrawable(R.drawable.bg)).getBitmap();
 
 		mBusStationWidth = mBus.getIntrinsicWidth() << 1;
 		float density = getResources().getDisplayMetrics().density;
@@ -441,6 +450,10 @@ public class BusLineView extends View {
 	@Override
 	protected void onDraw(Canvas canvas) {
 		super.onDraw(canvas);
+
+//		Paint mPaint = new Paint();
+//		canvas.drawBitmap(mBackGround, 0, 0, mPaint); //画背景图片
+
 		if (mBusLines.size() == 0) {
 			return;
 		}
