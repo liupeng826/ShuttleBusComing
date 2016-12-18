@@ -22,14 +22,18 @@ public class Initialize {
     public static final int FETCH_TIME_INTERVAL = 7000;
     public static final String WebApiURL = "http://180.76.169.196:8000/";
     public static boolean IS_LOGGING = false;
-
+    public static final String DRIVERLINE_KEY = "DRIVERLINE_KEY";
+    public static final String UUIDKEY = "UUID_KEY";
+    public static final String DRIVERKEY = "DRIVER_KEY";
     public static final String FILENAME = "ShuttleBusComing";
     public static final String LINE_KEY = "LINE_KEY";
     public static final String LINES_KEY = "LINES_KEY";
     public static final String UUID_KEY = "UUID_KEY";
     public static final String FAVORITELINE_KEY = "FAVORITELINE_KEY";
     public static final String FAVORITESTATION_KEY = "FAVORITESTATION_KEY";
-
+	public static final String mFileName = "BusLine";
+	public static final String mLineKey = "LINE_KEY";
+	public static final String mUUIDKey = "UUID_KEY";
     public static final int BUTTON = 1;
     public static final int CURSOR = 2;
     public static final String INDEX_PAGE = "首页";

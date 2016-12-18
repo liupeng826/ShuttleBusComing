@@ -51,6 +51,8 @@ import static android.content.ContentValues.TAG;
 import static com.liupeng.shuttleBusComing.utils.Initialize.FETCH_TIME_INTERVAL;
 import static com.liupeng.shuttleBusComing.utils.Initialize.FILENAME;
 import static com.liupeng.shuttleBusComing.utils.Initialize.LINE_KEY;
+import static com.liupeng.shuttleBusComing.utils.Initialize.UUIDKEY;
+import static com.liupeng.shuttleBusComing.utils.Initialize.WebApiURL;
 
 public class MapActivity extends Activity implements LocationSource,
         AMapLocationListener {
@@ -73,12 +75,6 @@ public class MapActivity extends Activity implements LocationSource,
 
     // 通过设置间隔时间和距离可以控制速度和图标移动的距离
     private static final double DISTANCE = 0.0001;
-
-    final String URL = "http://180.76.169.196:8000/";
-    final String DRIVERLINE_KEY = "DRIVERLINE_KEY";
-    final String UUIDKEY = "UUID_KEY";
-    final String DRIVERKEY = "DRIVER_KEY";
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -400,7 +396,7 @@ public class MapActivity extends Activity implements LocationSource,
 
     public void getData() {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(URL)
+                .baseUrl(WebApiURL)
                 //增加返回值为String的支持
                 .addConverterFactory(ScalarsConverterFactory.create())
                 //增加返回值为Gson的支持(以实体类返回)
@@ -527,7 +523,7 @@ public class MapActivity extends Activity implements LocationSource,
 
     public void postLocation(LatLng myLocation) {
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(URL)
+                .baseUrl(WebApiURL)
                 //增加返回值为String的支持
                 .addConverterFactory(ScalarsConverterFactory.create())
                 //增加返回值为Gson的支持(以实体类返回)
