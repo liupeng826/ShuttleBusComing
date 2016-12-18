@@ -20,7 +20,7 @@ import com.liupeng.shuttleBusComing.bean.LocationMessage;
 public class Initialize {
 
     public static final int FETCH_TIME_INTERVAL = 7000;
-    public static final String WebApiURL = "http://180.76.169.196:8000/";
+    public static final String WebApiURL = "http://60.205.182.57/";
     public static boolean IS_LOGGING = false;
     public static final String DRIVERLINE_KEY = "DRIVERLINE_KEY";
     public static final String UUIDKEY = "UUID_KEY";

@@ -232,7 +232,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.1"
-        sha1="4bcbadd64d3a11649ea5694fb238cefa3d8cdf19">
+        sha1="efd278fa1c5acc7d26abde2bb92747ee47da6c62">
         <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_6f5989d61c278139a5aa973edcab7cec698ad0c8/classes.dex" />
     </item>
     <item
