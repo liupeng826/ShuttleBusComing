@@ -1,10 +1,10 @@
 [
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/anim-v21/design_bottom_sheet_slide_in.xml"
+        "merged": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_in.xml",
+        "source": "/Users/v0cn123/.android/build-cache/7433fd83572b21836017ee7735712ee1b0f33e93/output/res/anim-v21/design_bottom_sheet_slide_in.xml"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/res/anim-v21/design_bottom_sheet_slide_out.xml"
+        "merged": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/anim-v21/design_bottom_sheet_slide_out.xml",
+        "source": "/Users/v0cn123/.android/build-cache/7433fd83572b21836017ee7735712ee1b0f33e93/output/res/anim-v21/design_bottom_sheet_slide_out.xml"
     }
 ]

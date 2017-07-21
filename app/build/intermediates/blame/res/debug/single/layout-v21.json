@@ -1,18 +1,18 @@
 [
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout-v21/notification_action_tombstone.xml"
+        "merged": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
+        "source": "/Users/v0cn123/.android/build-cache/b557ae61b5ea3b50eaa1b49985f98715c7bd8b56/output/res/layout-v21/notification_template_icon_group.xml"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout-v21/notification_template_icon_group.xml"
+        "merged": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
+        "source": "/Users/v0cn123/.android/build-cache/b557ae61b5ea3b50eaa1b49985f98715c7bd8b56/output/res/layout-v21/notification_action.xml"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout-v21/notification_action.xml",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout-v21/notification_action.xml"
+        "merged": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
+        "source": "/Users/v0cn123/.android/build-cache/b557ae61b5ea3b50eaa1b49985f98715c7bd8b56/output/res/layout-v21/notification_template_custom_big.xml"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/layout-v21/notification_template_custom_big.xml"
+        "merged": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml",
+        "source": "/Users/v0cn123/.android/build-cache/b557ae61b5ea3b50eaa1b49985f98715c7bd8b56/output/res/layout-v21/notification_action_tombstone.xml"
     }
 ]

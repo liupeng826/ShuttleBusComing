@@ -4,8 +4,8 @@
       <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.ashokvarma.android/bottom-navigation-bar/1.3.0/annotations.zip!/" />
     </ANNOTATIONS>
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.ashokvarma.android/bottom-navigation-bar/1.3.0/res" />
-      <root url="jar://$PROJECT_DIR$/app/build/intermediates/exploded-aar/com.ashokvarma.android/bottom-navigation-bar/1.3.0/jars/classes.jar!/" />
+      <root url="jar://$USER_HOME$/.android/build-cache/a506754cb0615553fdbd642cf59044f6a474342e/output/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.android/build-cache/a506754cb0615553fdbd642cf59044f6a474342e/output/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

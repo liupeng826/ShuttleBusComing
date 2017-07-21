@@ -1,6 +1,6 @@
 [
     {
-        "outputFile": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
+        "outputFile": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml",
         "map": [
             {
                 "to": {
@@ -12,7 +12,7 @@
                     "endOffset": 327
                 },
                 "from": {
-                    "file": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/res/values-hdpi-v4/values-hdpi-v4.xml",
+                    "file": "/Users/v0cn123/.android/build-cache/b557ae61b5ea3b50eaa1b49985f98715c7bd8b56/output/res/values-hdpi-v4/values-hdpi-v4.xml",
                     "position": {
                         "startLine": 2,
                         "startColumn": 4,

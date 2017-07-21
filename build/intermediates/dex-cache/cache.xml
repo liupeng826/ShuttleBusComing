@@ -3,327 +3,138 @@
 
     <item
         is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jar="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/libs/Android_Map3D_SDK_V4.1.3_20161208.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.1"
-        sha1="d12fbd37971dde9b2ab67710abaf43796e14f540">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run_9ef640d07d935f956ed26a9042c305eb672270de/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="6a1479afe9f1b3645e1cd9a87318976893472818">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-media-compat-25.0.1_9afa8eb1ac3c3e2a33e9278413decb152cdcce91/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="ec75036c3c52e451d0cde50a5aedaf5fd32354a0">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-recyclerview-v7-23.4.0_ecdb2b664fa62e3ca88adf914a483b518fdcb547/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/libs/AMap_Search_V3.6.1_20161122.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="3ec45e7996351e486830cf73a5a7ed88a2144c7f">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/2/AMap_Search_V3.6.1_20161122_553d1c0480060aea3c924ad364c87bb0fa9c3dbf/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="f7ac4b327fdb9e2ee386f5adc46164927658de4b">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-appcompat-v7-25.0.1_f30277470d2600a501bab9a410740b1bb742e52e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="e5343c9d19cb19ff55f6b268c7f3fe8c9d224f6f">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_5edba589c9b1157a71132c72094b18f6672bd857/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/com.google.code.gson/gson/2.7/751f548c85fa49f330cecbb1875893f971b33c4e/gson-2.7.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="751f548c85fa49f330cecbb1875893f971b33c4e">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/gson-2.7_8ac013948cd28183fc98086177d27abb8bf15426/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="51eba4a4dd73044f90a9d58dd7ca34adbebfcf4e">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-compat-25.0.1_e2ae10fbef22fd45c1f13bb5db5fb77031ac08fa/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-gson/2.1.0/aa557d71ead91cbf26e0c316a0f593d168303309/converter-gson-2.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="aa557d71ead91cbf26e0c316a0f593d168303309">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/converter-gson-2.1.0_19afb9f2672549930a58b6771b589359e057893b/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/com.squareup.okio/okio/1.8.0/5ea7af56cc7c567ed9856d99efb30740e9b17ff/okio-1.8.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="05ea7af56cc7c567ed9856d99efb30740e9b17ff">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/okio-1.8.0_4d263a5030ce577293a18ab90590f84d35de01b7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/animated-vector-drawable/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="772bed2d992b67b9d0327f766cc95cd63031dcd3">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-animated-vector-drawable-25.0.1_b4bcb48b40d37355926cc6c08eb9c4cd053a0489/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="c5b7145fb34779b6639147b8f2f8dd77c0db771b">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_c385de639f4ca1262fc27dc972c7e60ee4006c31/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.antfortune.freeline/runtime/0.8.2/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="611bdfa0266e6a0bb9865118c5206b0d992f91d9">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.antfortune.freeline-runtime-0.8.2_e698a093de92f2a45c3ee50e9342460ed71ef7e7/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="26c6eef571592c91f29e56fda0bac73321de0c92">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-fragment-25.0.1_f28b90f9d523c7e08f34c186323c1203ade63761/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.jakewharton/butterknife/8.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="a07818a1ecabdb149998823429cce555af4b9cba">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.jakewharton-butterknife-8.4.0_9b623bf433ae3c99299a3382aa3ea5303a4ba812/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.0.1/support-annotations-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="a09194311f8f89c3e6db09d79f50897a889d615e">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.0.1_fa29cf6e02990ebba5eb11a59665190b514c151f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-media-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="f83b00041ecfba705603fec40363416c7de69719">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_3c97e2f44d4ceb649d6919ce3f21959e60642958/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-fragment/25.0.1/jars/libs/internal_impl-25.0.1.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="c0bd6ffb002a85b5e7cad29f8558d1cc59539679">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_ca3374dea7f7c032ca91f82f426c2d2c8f8d1aeb/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/com.squareup.okhttp3/okhttp/3.3.0/2b802460eea20f8f2ad9c08c74e0f14718e88aa9/okhttp-3.3.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="2b802460eea20f8f2ad9c08c74e0f14718e88aa9">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/okhttp-3.3.0_183040df76ef296d2a3b9fdd53aba5245757c570/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/design/23.4.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="5326d9a850d491714fef8cbfaa9ea3416f0bf0d2">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-design-23.4.0_c546c9c0d855635d55900741790f6077bb6f39d4/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-vector-drawable/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="b24e1c688744078e1fa833ffadf696794761bbe5">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-vector-drawable-25.0.1_edd76d631375b45ef32674719636af1c6c327fe5/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/converter-scalars/2.1.0/7c0d7c8f6e52115bb82fa018d81a8d0cae35dde5/converter-scalars-2.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="7c0d7c8f6e52115bb82fa018d81a8d0cae35dde5">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/converter-scalars-2.1.0_84bd05dbf63ad5118c180897baa23d2629e18c40/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/libs/Android_Map3D_SDK_V4.1.3_20161208.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
+        revision="26.0.0"
         sha1="c108325bfcbf3212ddc2e6ea6e55f56742537381">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/2/Android_Map3D_SDK_V4.1.3_20161208_3a9b51dc62b9109980790ca532241d381ab05889/classes.dex" />
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/2/Android_Map3D_SDK_V4.1.3_20161208_a3219be05d8acbd06182b8cd831d1297f24b196d/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-compat/25.0.1/jars/libs/internal_impl-25.0.1.jar"
+        jar="/Users/v0cn123/.android/build-cache/b557ae61b5ea3b50eaa1b49985f98715c7bd8b56/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.1"
-        sha1="3af8cc51ef7088e56f132780da8c0bd858b6a6ad">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/internal_impl-25.0.1_ae87615ab959fc3745f1af3294edce0577df6f20/classes.dex" />
+        revision="26.0.0"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_ce1b109fbe9514adef785882e7b1c25f62020b51/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-core-utils/25.0.1/jars/classes.jar"
+        jar="/Users/v0cn123/.android/build-cache/549190a615b9100f1bae96cf5e729cb7f9eedc28/output/jars/classes.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.1"
-        sha1="00d4c8eebf2b681073c72a26bd0849549e51c7cb">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-utils-25.0.1_e58ddd1a109f8f1a5919a546f9deadd9c5cf68f8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.blankj/utilcode/1.3.4/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="67d5a9b53bf1769128c99b25add3bc0b90576f05">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.blankj-utilcode-1.3.4_b219af32e2729adc3d8adc31a42fd0c5fe207391/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="a7668daf473a9dd56f2d3b8b60eff7cdb70ac3f5">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/instant-run-bootstrap_6f5989d61c278139a5aa973edcab7cec698ad0c8/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/io.reactivex/rxjava/1.1.6/2586312cd2b8a511e4c6236736f5a039fc0f2273/rxjava-1.1.6.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="2586312cd2b8a511e4c6236736f5a039fc0f2273">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/rxjava-1.1.6_fe4fe372fb81ac3882ed1f93c4d6bda2b0c7b50a/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-core-ui/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="bc7e99e8d0fc279a05aa91378530f467ad62d443">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-core-ui-25.0.1_3da6e810d759e1e86fc988462f60528a72833eb3/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.ashokvarma.android/bottom-navigation-bar/1.3.0/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="84a5e720e441032fc979314a4539f3d40079801b">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.ashokvarma.android-bottom-navigation-bar-1.3.0_69814c3f88cb1f305eca95ba58e20c48954aa043/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/com.jakewharton/butterknife-annotations/8.4.0/ea392375cf9ff59234a82e7928a204215ccc98cd/butterknife-annotations-8.4.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="ea392375cf9ff59234a82e7928a204215ccc98cd">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/butterknife-annotations-8.4.0_324bfb7dadc9c4346cd482171d2a93ee1d97b62e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/libs/AMap_Location_V3.2.0_20161205.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="430455692ed706628086e4ae3604645949ef339e">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/2/AMap_Location_V3.2.0_20161205_77735e6348c5c1bedccfa3f2ee720315def2db0f/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/io.reactivex/rxandroid/1.2.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="5a2386ad9bfff580b206a7fe305cdccd00798159">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/io.reactivex-rxandroid-1.2.1_a0db64d91fcab86e74b1e4b6de041752fc29686e/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/retrofit/2.1.0/2de7cd8b95b7021b1d597f049bcb422055119f2c/retrofit-2.1.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
-        sha1="2de7cd8b95b7021b1d597f049bcb422055119f2c">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/retrofit-2.1.0_21910db5e13b48c9b0b6561e5a227c52612b2186/classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/exploded-aar/com.android.support/support-v4/25.0.1/jars/classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.1"
+        revision="26.0.0"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/com.android.support-support-v4-25.0.1_43138d21efd88dfcd5ccbead0589c55e32767640/classes.dex" />
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_fc831551244b08a6c159ce4dcbbb12311a947d88/classes.dex" />
     </item>
     <item
         is-multidex="true"
-        jar="/Users/liupeng/.gradle/caches/modules-2/files-2.1/com.squareup.retrofit2/adapter-rxjava/2.1.0/693eddc23e87ab13f9cf5001707ce8e7e1d1ff01/adapter-rxjava-2.1.0.jar"
+        jar="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/libs/AMap_Location_V3.2.0_20161205.jar"
         jumboMode="true"
         optimize="true"
-        revision="25.0.1"
-        sha1="693eddc23e87ab13f9cf5001707ce8e7e1d1ff01">
-        <dex dex="/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/adapter-rxjava-2.1.0_503d6e5ab1e1f47c3c1421aaeccbeec3596bdbbc/classes.dex" />
+        revision="26.0.0"
+        sha1="430455692ed706628086e4ae3604645949ef339e">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/2/AMap_Location_V3.2.0_20161205_819a3b2cf2c290534818432c3b960bc3e0332562/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/.android/build-cache/9229b2e24cf3670d0103ba005be67d63d4881cbc/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_c49b253e4bad6951766edef1db4ca5aa97ee5b5d/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/incremental-runtime-classes/debug/instant-run.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run_8e91d364455b2ee72b9f82dc574ccc3d102e40c4/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/.android/build-cache/b5b647f08043e6e0269b42783480c2166db02f68/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b3d880e525004de85c1fa870c756645501d72490/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/libs/AMap_Search_V3.6.1_20161122.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="3ec45e7996351e486830cf73a5a7ed88a2144c7f">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/2/AMap_Search_V3.6.1_20161122_238f924c01bbe786c7318881dbc658140172a8e6/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/.android/build-cache/7f7af18e3df862927f11d0d179d7d2cdb80ccc79/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="da27a32db6af8954ee8061537c7d476fcb1df46f">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_65e8f7224f5819d638e3c8ec2ed240962fef47fc/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/.android/build-cache/4477c3c3910b9ac5451d3a54fabaa9c85efb89be/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_3f8919dd79ab8b7f0652b9b3144eb123d1d98604/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/incremental-classes/debug/instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="12fb8a175abe853bf130cb75806db93f0d4572f8">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10000/instant-run-bootstrap_9484193888782c75d85bdeef8b5b5fbe1c1f16a7/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/.android/build-cache/e33a1afc81eef046b0c0e3e7abea76e3cf5a9c6b/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="4a26a1154d053ab11aaf4c3967c42a4d66390991">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_b952d535f808050204e2006e58c55c2119348f02/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/.android/build-cache/dde66cd79a40f17c34db674f0250f307e90ee962/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_26e6a8f2590cc104fd1143112d3dd10101b733db/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/25.3.1/support-annotations-25.3.1.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="bf8841d29fa39e077730e7a91222c2ce269fa7c9">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/support-annotations-25.3.1_30ddc258affeeea046a6d7a5efdb043022b4c7d8/classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="/Users/v0cn123/.android/build-cache/5e7fad3096d8fa975a7ece0c6b7a5a4b2c9f5862/output/jars/classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="26.0.0"
+        sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
+        <dex dex="/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/transforms/dex/debug/folders/1000/10/classes_6436630433e4ebb2e1731157513a29d5258506ce/classes.dex" />
     </item>
 
 </items>

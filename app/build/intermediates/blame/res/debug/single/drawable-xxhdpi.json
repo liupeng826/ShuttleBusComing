@@ -1,22 +1,18 @@
 [
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xxhdpi/map_icon_driver_car.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xxhdpi/map_icon_driver_car.png"
+        "merged": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_launcher.png",
+        "source": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xxhdpi/ic_launcher.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xxhdpi/ic_launcher.png"
+        "merged": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xxhdpi/map_icon_tailwind.png",
+        "source": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xxhdpi/map_icon_tailwind.png"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xxhdpi/map_icon_luxury.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xxhdpi/map_icon_luxury.png"
+        "merged": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xxhdpi/map_icon_luxury.png",
+        "source": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xxhdpi/map_icon_luxury.png"
     },
     {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xxhdpi/volvo_logo.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xxhdpi/volvo_logo.png"
-    },
-    {
-        "merged": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xxhdpi/map_icon_tailwind.png",
-        "source": "/Users/liupeng/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xxhdpi/map_icon_tailwind.png"
+        "merged": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/build/intermediates/res/merged/debug/drawable-xxhdpi/map_icon_driver_car.png",
+        "source": "/Users/v0cn123/work/Android/AndroidStudio/ShuttleBusComing/app/src/main/res/drawable-xxhdpi/map_icon_driver_car.png"
     }
 ]
